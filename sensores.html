@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sensores IoT — Catálogo Técnico | IoT &amp; Automação 4.0</title>
+<meta name="description" content="Catálogo técnico digital de sensores para projetos de Internet das Coisas (IoT) e Automação Industrial com Arduino, ESP32, Raspberry Pi e CLPs.">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- Barra de status: reforça a identidade de "painel técnico" do catálogo -->
+<div class="statusbar">
+  <div class="container">
+    <span><span class="status-dot"></span>CATÁLOGO TÉCNICO ONLINE</span>
+    <span class="status-right">
+      <span class="mono" id="clock">00:00:00</span>
+      <span>25 SENSORES CADASTRADOS</span>
+    </span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <svg class="brand-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="16" cy="16" r="14.5" stroke="#7c3aed" stroke-width="1.4"/>
+        <circle cx="16" cy="16" r="4.2" fill="none" stroke="#c026d3" stroke-width="1.4"/>
+        <circle cx="16" cy="16" r="1.6" fill="#5b21b6"/>
+        <path d="M16 6v3.4M16 22.6V26M6 16h3.4M22.6 16H26" stroke="#7c3aed" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      <span>IoT<br><small>&amp; Automação 4.0</small></span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/></svg>
+    </button>
+
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sensores.html" class="active">Sensores IoT</a></li>
+        <li><a href="robos.html">Robôs Industriais</a></li>
+        <li><a href="videos.html">Vídeos</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">Indústria 4.0 · Internet das Coisas</span>
+    <h1>Catálogo técnico de <em>sensores IoT</em> e industriais</h1>
+    <p class="lead">Características, princípio de funcionamento, especificações e formas de integração dos principais sensores utilizados em projetos com Arduino, ESP32, Raspberry Pi e CLPs.</p>
+    <div class="hero-actions">
+      <a href="#catalogo" class="btn btn-primary">Explorar catálogo de sensores</a>
+      <a href="#sensoriamento" class="btn btn-ghost">O que é sensoriamento?</a>
+    </div>
+
+    <div class="hero-panel">
+      <div class="panel-label"><span>SENSOR + MICROCONTROLADOR + NUVEM</span><span>FIG. 00</span></div>
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Arduino%20Uno%2C%20Breadboard%2C%20and%205DOF%20Sensor%20on%20Seesaw.jpg" alt="Sensor conectado a uma placa Arduino em protoboard" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONCEITO DE SENSORIAMENTO ================= -->
+<section id="sensoriamento">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-index">01 · Conceito</span>
+      <h2>O que é sensoriamento?</h2>
+      <p>Sensoriamento é o processo de captar grandezas físicas ou químicas do ambiente — temperatura, luminosidade, distância, gases, vibração — e convertê-las em sinais elétricos que um microcontrolador ou CLP consegue interpretar. É a "porta de entrada" de qualquer sistema de automação ou IoT: sem sensor, não há dado; sem dado, não há decisão automática.</p>
+    </div>
+
+    <div class="concept-grid">
+      <div class="concept-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2a5 5 0 0 0-5 5v6a5 5 0 0 0 10 0V7a5 5 0 0 0-5-5z"/><path d="M8 14a4 4 0 0 0 8 0"/><path d="M12 18v4M9 22h6"/></svg>
+        <span class="idx">GRANDEZA FÍSICA</span>
+        <h3>Captação</h3>
+        <p>O elemento sensível reage a uma variação física (calor, luz, pressão, campo magnético) mudando alguma propriedade elétrica sua.</p>
+      </div>
+      <div class="concept-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12h4l2-7 4 14 2-7h4"/></svg>
+        <span class="idx">SINAL ELÉTRICO</span>
+        <h3>Conversão</h3>
+        <p>Essa variação vira um sinal — analógico (tensão contínua) ou digital (pulsos, protocolos como I2C, SPI, UART) — pronto para leitura.</p>
+      </div>
+      <div class="concept-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/></svg>
+        <span class="idx">PROCESSAMENTO</span>
+        <h3>Interpretação</h3>
+        <p>Um microcontrolador (Arduino, ESP32), Raspberry Pi ou CLP lê o sinal, aplica calibração e transforma em uma medida com significado (°C, %, cm).</p>
+      </div>
+      <div class="concept-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/><circle cx="12" cy="12" r="3"/></svg>
+        <span class="idx">AÇÃO</span>
+        <h3>Controle</h3>
+        <p>Com base na leitura, o sistema toma uma decisão: liga um atuador, envia um alerta, publica o dado na nuvem ou ajusta um processo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= IMPORTÂNCIA NA AUTOMAÇÃO / RELAÇÃO SENSOR-COMUNICAÇÃO-CONTROLE ================= -->
+<section id="relacao" style="background: var(--bg-band);">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-index">02 · Automação Industrial</span>
+      <h2>Sensores, comunicação de dados e controle de processos</h2>
+      <p>Na Indústria 4.0, o sensor deixou de ser um componente isolado: ele é o primeiro elo de uma cadeia que leva o dado do chão de fábrica até a nuvem e de volta, na forma de decisão automática.</p>
+    </div>
+
+    <div class="layer-list">
+      <div class="layer-item">
+        <span class="tag">Camada 1</span>
+        <div><h4>Sensoriamento de campo</h4><p>Sensores de temperatura, presença, gás, vibração, nível e corrente monitoram continuamente o processo físico e alimentam o sistema com dados brutos em tempo real.</p></div>
+      </div>
+      <div class="layer-item">
+        <span class="tag">Camada 2</span>
+        <div><h4>Aquisição e comunicação</h4><p>Microcontroladores (Arduino, ESP32) e CLPs leem os sinais analógicos/digitais e os transmitem via Wi-Fi, protocolos industriais (Modbus, RS-485) ou barramentos locais (I2C, SPI).</p></div>
+      </div>
+      <div class="layer-item">
+        <span class="tag">Camada 3</span>
+        <div><h4>Processamento e nuvem</h4><p>Plataformas de IoT (MQTT, dashboards, bancos de dados em nuvem) armazenam o histórico, geram alertas e permitem análise e visualização remota.</p></div>
+      </div>
+      <div class="layer-item">
+        <span class="tag">Camada 4</span>
+        <div><h4>Controle e atuação</h4><p>Com base nos dados, atuadores (motores, válvulas, relés) corrigem o processo automaticamente — fechando o ciclo sensor → dado → decisão → ação.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ARDUINO ================= -->
+<section id="arduino">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-index">03 · Plataforma</span>
+      <h2>Arduino: conceito, funcionamento e programação</h2>
+      <p>O Arduino é a plataforma mais usada para prototipar projetos de sensoriamento — hardware aberto, baixo custo e uma linguagem de programação simplificada (baseada em C/C++).</p>
+    </div>
+
+    <div class="robot-head">
+      <div>
+        <span class="kicker">Conceito e características</span>
+        <h2>O que é o Arduino?</h2>
+        <p>Arduino é uma plataforma de prototipagem eletrônica de hardware livre, composta por uma placa com um microcontrolador (normalmente o ATmega328P, no caso do Uno) e por um ambiente de desenvolvimento (IDE) onde o código é escrito, compilado e enviado à placa via USB.</p>
+        <p>Cada placa expõe pinos digitais (entrada/saída HIGH ou LOW) e pinos analógicos (leitura de tensão convertida em um valor de 0 a 1023 pelo conversor A/D de 10 bits), além de barramentos I2C e SPI para sensores mais avançados.</p>
+      </div>
+      <figure class="robot-diagram">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Arduino%20Uno%20R3.JPG" alt="Placa Arduino Uno R3" loading="lazy">
+        <figcaption>FIG. 01 — Placa Arduino Uno R3</figcaption>
+      </figure>
+    </div>
+
+    <div class="spec-grid">
+      <div class="spec-block">
+        <h3><span class="n">01</span> Características (Arduino Uno R3)</h3>
+        <ul>
+          <li>Microcontrolador ATmega328P, 16 MHz</li>
+          <li>14 pinos digitais I/O (6 com saída PWM)</li>
+          <li>6 entradas analógicas, conversor A/D de 10 bits</li>
+          <li>Alimentação via USB (5 V) ou jack externo (7–12 V)</li>
+          <li>32 KB de memória flash, 2 KB de SRAM, 1 KB de EEPROM</li>
+          <li>Suporte nativo a I2C (pinos A4/A5) e SPI (pinos 10–13)</li>
+        </ul>
+      </div>
+      <div class="spec-block">
+        <h3><span class="n">02</span> Funcionamento e programação</h3>
+        <ul>
+          <li>Código escrito em "sketches" (.ino), estruturados em <span class="mono">setup()</span> e <span class="mono">loop()</span></li>
+          <li><span class="mono">setup()</span> roda uma vez: configura pinos e comunicação serial</li>
+          <li><span class="mono">loop()</span> roda continuamente: lê sensores e decide ações</li>
+          <li>Leitura digital: <span class="mono">digitalRead()</span> / <span class="mono">digitalWrite()</span></li>
+          <li>Leitura analógica: <span class="mono">analogRead()</span> (0–1023)</li>
+          <li>Bibliotecas prontas (Wire, SPI, DHT, HX711 etc.) simplificam sensores complexos</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="iot-callout">
+      <h3>Exemplos de programação — no mínimo 10 sensores</h3>
+      <p>Abaixo, um sketch de exemplo para cada um dos sensores mais representativos do catálogo, cobrindo os principais tipos de sinal (digital, analógico, pulso/interrupção e protocolos I2C/SPI).</p>
+    </div>
+
+
+<div class="spec-block" style="margin-bottom:20px;">
+  <h3><span class="n">01</span> DHT11 — Temperatura e Umidade (digital 1-fio)</h3>
+  <pre style="background:#221a33; color:#e9e4f8; padding:18px 20px; border-radius:12px; overflow-x:auto; font-size:.82rem; line-height:1.55;"><code>#include &lt;DHT.h&gt;
+
+#define DHTPIN 2        // pino digital conectado ao DHT11
+#define DHTTYPE DHT11
+DHT dht(DHTPIN, DHTTYPE);
+
+void setup() {
+  Serial.begin(9600);
+  dht.begin();          // inicializa o sensor
+}
+
+void loop() {
+  float umidade = dht.readHumidity();
+  float temperatura = dht.readTemperature();
+
+  if (isnan(umidade) || isnan(temperatura)) {
+    Serial.println(&quot;Falha na leitura do DHT11!&quot;);
+  } else {
+    Serial.print(&quot;Umidade: &quot;);   Serial.print(umidade);    Serial.print(&quot; %  &quot;);
+    Serial.print(&quot;Temperatura: &quot;); Serial.print(temperatura); Serial.println(&quot; *C&quot;);
+  }
+  delay(2000); // DHT11 exige intervalo mínimo entre leituras
+}</code></pre>
+</div>
+
+<div class="spec-block" style="margin-bottom:20px;">
+  <h3><span class="n">02</span> LM35 — Temperatura (analógico)</h3>
+  <pre style="background:#221a33; color:#e9e4f8; padding:18px 20px; border-radius:12px; overflow-x:auto; font-size:.82rem; line-height:1.55;"><code>const int pinoLM35 = A0;
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  int leitura = analogRead(pinoLM35);           // 0 a 1023
+  float tensao = leitura * (5.0 / 1023.0);       // converte para volts
+  float temperatura = tensao * 100.0;            // LM35: 10 mV por °C
+
+  Serial.print(&quot;Temperatura: &quot;);
+  Serial.print(temperatura);
+  Serial.println(&quot; *C&quot;);
+  delay(1000);
+}</code></pre>
+</div>
+
+<div class="spec-block" style="margin-bottom:20px;">
+  <h3><span class="n">03</span> HC-SR04 — Distância (digital, medição de tempo de pulso)</h3>
+  <pre style="background:#221a33; color:#e9e4f8; padding:18px 20px; border-radius:12px; overflow-x:auto; font-size:.82rem; line-height:1.55;"><code>const int trigPin = 9;
+const int echoPin = 10;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+}
+
+void loop() {
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);   // pulso de disparo de 10 us
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  long duracao = pulseIn(echoPin, HIGH);      // tempo do eco em microssegundos
+  float distanciaCm = duracao * 0.0343 / 2;   // velocidade do som / 2
+
+  Serial.print(&quot;Distancia: &quot;);
+  Serial.print(distanciaCm);
+  Serial.println(&quot; cm&quot;);
+  delay(300);
+}</code></pre>
+</div>
+
+<div class="spec-block" style="margin-bottom:20px;">
+  <h3><span class="n">04</span> PIR HC-SR501 — Presença (digital)</h3>
+  <pre style="background:#221a33; color:#e9e4f8; padding:18px 20px; border-radius:12px; overflow-x:auto; font-size:.82rem; line-height:1.55;"><code>const int pinoPIR = 3;
+const int pinoLED = 13;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(pinoPIR, INPUT);
+  pinMode(pinoLED, OUTPUT);
+}
+
+void loop() {
+  int movimento = digitalRead(pinoPIR);
+
+  if (movimento == HIGH) {
+    digitalWrite(pinoLED, HIGH);
+    Serial.println(&quot;Movimento detectado!&quot;);
+  } else {
+    digitalWrite(pinoLED, LOW);
+  }
+  delay(200);
+}</code></pre>
+</div>
+
+<div class="spec-block" style="margin-bottom:20px;">
+  <h3><span class="n">05</span> LDR — Luminosidade (analógico)</h3>
+  <pre style="background:#221a33; color:#e9e4f8; padding:18px 20px; border-radius:12px; overflow-x:auto; font-size:.82rem; line-height:1.55;"><code>const int pinoLDR = A0;
+const int limiar = 400; // ajuste conforme o ambiente
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(13, OUTPUT); // LED indicador
+}
+
+void loop() {
+  int luz = analogRead(pinoLDR); // 0 (escuro) a 1023 (muito claro)
+  Serial.print(&quot;Nivel de luz: &quot;);
+  Serial.println(luz);
+
+  if (luz &lt; limiar) {
+    digitalWrite(13, HIGH); // escureceu: liga iluminação
+  } else {
+    digitalWrite(13, LOW);
+  }
+  delay(500);
+}</code></pre>
+</div>
+
+<div class="spec-block" style="margin-bottom:20px;">
+  <h3><span class="n">06</span> MQ-2 — Gás/Fumaça (analógico + digital)</h3>
+  <pre style="background:#221a33; color:#e9e4f8; padding:18px 20px; border-radius:12px; overflow-x:auto; font-size:.82rem; line-height:1.55;"><code>const int pinoAnalogico = A0;
+const int pinoDigital   = 7;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(pinoDigital, INPUT);
+}
+
+void loop() {
+  int nivelGas = analogRead(pinoAnalogico);   // concentração relativa
+  int alarme   = digitalRead(pinoDigital);    // 1 = acima do limiar ajustado
+
+  Serial.print(&quot;Nivel de gas: &quot;); Serial.print(nivelGas);
+  Serial.print(&quot; | Alarme: &quot;);    Serial.println(alarme == HIGH ? &quot;SIM&quot; : &quot;nao&quot;);
+
+  if (alarme == HIGH) {
+    Serial.println(&quot;&gt;&gt;&gt; Risco de vazamento detectado!&quot;);
+  }
+  delay(1000);
+}</code></pre>
+</div>
+
+<div class="spec-block" style="margin-bottom:20px;">
+  <h3><span class="n">07</span> Sensor Capacitivo de Umidade do Solo (analógico)</h3>
+  <pre style="background:#221a33; color:#e9e4f8; padding:18px 20px; border-radius:12px; overflow-x:auto; font-size:.82rem; line-height:1.55;"><code>const int pinoSensor = A0;
+const int pinoBomba   = 8;
+const int limiarSeco  = 600; // calibrar conforme o solo/sensor
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(pinoBomba, OUTPUT);
+}
+
+void loop() {
+  int umidadeSolo = analogRead(pinoSensor); // valores menores = solo mais úmido
+
+  Serial.print(&quot;Umidade do solo (raw): &quot;);
+  Serial.println(umidadeSolo);
+
+  if (umidadeSolo &gt; limiarSeco) {
+    digitalWrite(pinoBomba, HIGH); // solo seco: liga irrigação
+    delay(5000);
+    digitalWrite(pinoBomba, LOW);
+  }
+  delay(2000);
+}</code></pre>
+</div>
+
+<div class="spec-block" style="margin-bottom:20px;">
+  <h3><span class="n">08</span> YF-S201 — Fluxo de Água (digital, pulsos por interrupção)</h3>
+  <pre style="background:#221a33; color:#e9e4f8; padding:18px 20px; border-radius:12px; overflow-x:auto; font-size:.82rem; line-height:1.55;"><code>volatile long pulsos = 0;
+const int pinoSensor = 2; // precisa ser um pino com suporte a interrupção
+
+void contaPulso() {
+  pulsos++;
+}
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(pinoSensor, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(pinoSensor), contaPulso, RISING);
+}
+
+void loop() {
+  pulsos = 0;
+  sei();
+  delay(1000);           // conta pulsos durante 1 segundo
+  cli();
+  float litrosPorMinuto = (pulsos / 4.5); // ~4.5 pulsos por litro (YF-S201)
+
+  Serial.print(&quot;Vazao: &quot;);
+  Serial.print(litrosPorMinuto);
+  Serial.println(&quot; L/min&quot;);
+}</code></pre>
+</div>
+
+<div class="spec-block" style="margin-bottom:20px;">
+  <h3><span class="n">09</span> MFRC522 — Leitor RFID (digital, SPI)</h3>
+  <pre style="background:#221a33; color:#e9e4f8; padding:18px 20px; border-radius:12px; overflow-x:auto; font-size:.82rem; line-height:1.55;"><code>#include &lt;SPI.h&gt;
+#include &lt;MFRC522.h&gt;
+
+#define SS_PIN  10
+#define RST_PIN 9
+MFRC522 leitor(SS_PIN, RST_PIN);
+
+void setup() {
+  Serial.begin(9600);
+  SPI.begin();
+  leitor.PCD_Init();
+  Serial.println(&quot;Aproxime um cartao RFID...&quot;);
+}
+
+void loop() {
+  if (!leitor.PICC_IsNewCardPresent() || !leitor.PICC_ReadCardSerial()) {
+    return;
+  }
+
+  Serial.print(&quot;UID do cartao: &quot;);
+  for (byte i = 0; i &lt; leitor.uid.size; i++) {
+    Serial.print(leitor.uid.uidByte[i] &lt; 0x10 ? &quot; 0&quot; : &quot; &quot;);
+    Serial.print(leitor.uid.uidByte[i], HEX);
+  }
+  Serial.println();
+  leitor.PICC_HaltA();
+}</code></pre>
+</div>
+
+<div class="spec-block" style="margin-bottom:20px;">
+  <h3><span class="n">10</span> Célula de Carga + HX711 — Peso (digital, protocolo síncrono)</h3>
+  <pre style="background:#221a33; color:#e9e4f8; padding:18px 20px; border-radius:12px; overflow-x:auto; font-size:.82rem; line-height:1.55;"><code>#include &quot;HX711.h&quot;
+
+const int pinoDT  = 4;
+const int pinoSCK = 5;
+HX711 balanca;
+
+void setup() {
+  Serial.begin(9600);
+  balanca.begin(pinoDT, pinoSCK);
+  balanca.set_scale(2280.f);  // fator de calibração (obtido com peso conhecido)
+  balanca.tare();             // zera a balança sem peso sobre a célula
+}
+
+void loop() {
+  float peso = balanca.get_units(10); // média de 10 leituras, em gramas/kg
+  Serial.print(&quot;Peso: &quot;);
+  Serial.print(peso);
+  Serial.println(&quot; kg&quot;);
+  delay(500);
+}</code></pre>
+</div>
+  </div>
+</section>
+
+<!-- ================= CATÁLOGO DE SENSORES ================= -->
+<section id="catalogo" style="background: var(--bg-band);">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-index">04 · Catálogo</span>
+      <h2>25 sensores para IoT e Automação Industrial</h2>
+      <p>Selecione um sensor no painel de navegação para ver conceito, princípio de funcionamento, especificações técnicas, tipo de sinal, aplicações, exemplo de uso e fabricantes/modelos comerciais.</p>
+    </div>
+
+    <div class="catalog-shell">
+<nav class="catalog-nav" aria-label="Seleção de sensor">
+  <div style="padding:10px 12px 4px; font-family:var(--font-body); font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; color:var(--text-faint); font-weight:600;">Temperatura e Umidade</div>
+  <button class="active" data-target="dht11"><span class="n">01</span> DHT11</button>
+  <button  data-target="dht22"><span class="n">02</span> DHT22</button>
+  <button  data-target="lm35"><span class="n">03</span> LM35</button>
+  <button  data-target="ds18b20"><span class="n">04</span> DS18B20</button>
+  <div style="padding:10px 12px 4px; font-family:var(--font-body); font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; color:var(--text-faint); font-weight:600;">Luminosidade</div>
+  <button  data-target="ldr"><span class="n">05</span> LDR (Fotorresistor)</button>
+  <button  data-target="bh1750"><span class="n">06</span> BH1750</button>
+  <div style="padding:10px 12px 4px; font-family:var(--font-body); font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; color:var(--text-faint); font-weight:600;">Distância e Movimento</div>
+  <button  data-target="hcsr04"><span class="n">07</span> HC-SR04</button>
+  <button  data-target="pir501"><span class="n">08</span> PIR HC-SR501</button>
+  <div style="padding:10px 12px 4px; font-family:var(--font-body); font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; color:var(--text-faint); font-weight:600;">Proximidade</div>
+  <button  data-target="lj12a3"><span class="n">09</span> Sensor Indutivo LJ12A3</button>
+  <button  data-target="lj18a3"><span class="n">10</span> Sensor Capacitivo LJ18A3</button>
+  <div style="padding:10px 12px 4px; font-family:var(--font-body); font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; color:var(--text-faint); font-weight:600;">Gás</div>
+  <button  data-target="mq2"><span class="n">11</span> MQ-2</button>
+  <button  data-target="mq135"><span class="n">12</span> MQ-135</button>
+  <div style="padding:10px 12px 4px; font-family:var(--font-body); font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; color:var(--text-faint); font-weight:600;">Solo e Água</div>
+  <button  data-target="soloumid"><span class="n">13</span> Sensor Capacitivo de Umidade do Solo</button>
+  <button  data-target="fc37"><span class="n">14</span> Sensor de Chuva FC-37</button>
+  <button  data-target="boia"><span class="n">15</span> Sensor de Nível (Boia)</button>
+  <button  data-target="yfs201"><span class="n">16</span> YF-S201</button>
+  <div style="padding:10px 12px 4px; font-family:var(--font-body); font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; color:var(--text-faint); font-weight:600;">Grandezas Elétricas</div>
+  <button  data-target="acs712"><span class="n">17</span> ACS712</button>
+  <button  data-target="zmpt101b"><span class="n">18</span> ZMPT101B</button>
+  <div style="padding:10px 12px 4px; font-family:var(--font-body); font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; color:var(--text-faint); font-weight:600;">Mecânico e Rotação</div>
+  <button  data-target="sw420"><span class="n">19</span> SW-420</button>
+  <button  data-target="halla3144"><span class="n">20</span> Sensor Hall A3144</button>
+  <button  data-target="ky040"><span class="n">21</span> Encoder Incremental KY-040</button>
+  <div style="padding:10px 12px 4px; font-family:var(--font-body); font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; color:var(--text-faint); font-weight:600;">Identificação e Peso</div>
+  <button  data-target="mfrc522"><span class="n">22</span> MFRC522 (RFID)</button>
+  <button  data-target="celulacarga"><span class="n">23</span> Célula de Carga + HX711</button>
+  <div style="padding:10px 12px 4px; font-family:var(--font-body); font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; color:var(--text-faint); font-weight:600;">Som e Chama</div>
+  <button  data-target="ky037"><span class="n">24</span> KY-037 (Sensor de Som)</button>
+  <button  data-target="chamair"><span class="n">25</span> Sensor de Chama IR</button>
+</nav>
+<div>
+<article class="robot-panel active" id="dht11">
+  <div class="robot-head">
+    <div>
+      <span class="kicker">Temperatura e Umidade</span>
+      <h2>DHT11</h2>
+      <p>Sensor digital combinado de temperatura e umidade relativa do ar, muito usado em projetos educacionais e de baixo custo.</p>
+    </div>
+    <figure class="robot-diagram">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Dht11%20term%20and%20humidity%20sensor.jpg" alt="DHT11" loading="lazy">
+      <figcaption>FIG. 01 — DHT11</figcaption>
+    </figure>
+  </div>
+
+  <div class="spec-grid">
+    <div class="spec-block">
+      <h3><span class="n">01</span> Princípio de funcionamento</h3>
+      <p style="margin:0; font-size:.92rem;">Um termistor NTC mede a temperatura e um sensor capacitivo de umidade mede a variação de capacitância conforme a umidade do ar; um chip interno faz a conversão e envia os dois valores por um único fio.</p>
+    </div>
+    <div class="spec-block">
+      <h3><span class="n">02</span> Especificações técnicas</h3>
+      <ul>
+          <li>Tensão: 3 a 5,5 V</li>
+          <li>Umidade: 20–90% (±5%)</li>
+          <li>Temperatura: 0–50 °C (±2 °C)</li>
+          <li>Taxa de amostragem: ~1 Hz</li>
+      </ul>
+      <p style="margin:12px 0 0; font-size:.85rem;"><strong>Tipo de sinal:</strong> Digital (protocolo proprietário de 1 fio)</p>
+    </div>
+  </div>
+
+  <div class="iot-callout">
+    <h3>Aplicações e exemplo de uso</h3>
+    <ul style="margin:0 0 10px; padding-left:18px;">
+          <li>Estações meteorológicas simples</li>
+          <li>Automação residencial (climatização)</li>
+          <li>Projetos educacionais de IoT</li>
+    </ul>
+    <p style="margin:0;"><strong>Exemplo de projeto:</strong> Leitura periódica de temperatura e umidade de uma sala, publicada em um dashboard via ESP32.</p>
+  </div>
+
+  <div class="table-scroll">
+    <table class="models-table">
+      <caption>Fabricantes / modelos comerciais</caption>
+      <thead><tr><th>Fabricante ou modelo</th></tr></thead>
+      <tbody>
+            <tr><td class="brand">Aosong (fabricante original)</td></tr>
+            <tr><td class="brand">Módulos genéricos com resistor pull-up integrado</td></tr>
+      </tbody>
+    </table>
+  </div>
+</article>
+
+<article class="robot-panel" id="dht22">
+  <div class="robot-head">
+    <div>
+      <span class="kicker">Temperatura e Umidade</span>
+      <h2>DHT22</h2>
+      <p>Versão aprimorada do DHT11, com maior precisão e faixa de medição mais ampla — também conhecido como AM2302.</p>
+    </div>
+    <figure class="robot-diagram">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/DHT%2022%20Sensor.jpg" alt="DHT22" loading="lazy">
+      <figcaption>FIG. 02 — DHT22</figcaption>
+    </figure>
+  </div>
+
+  <div class="spec-grid">
+    <div class="spec-block">
+      <h3><span class="n">01</span> Princípio de funcionamento</h3>
+      <p style="margin:0; font-size:.92rem;">Mesmo princípio do DHT11 (termistor + sensor capacitivo de umidade), porém com componentes de melhor qualidade e um microcontrolador interno mais preciso na calibração do sinal.</p>
+    </div>
+    <div class="spec-block">
+      <h3><span class="n">02</span> Especificações técnicas</h3>
+      <ul>
+          <li>Tensão: 3 a 6 V</li>
+          <li>Umidade: 0–100% (±2–5%)</li>
+          <li>Temperatura: -40 a 80 °C (±0,5 °C)</li>
+          <li>Taxa de amostragem: ~0,5 Hz</li>
+      </ul>
+      <p style="margin:12px 0 0; font-size:.85rem;"><strong>Tipo de sinal:</strong> Digital (protocolo proprietário de 1 fio)</p>
+    </div>
+  </div>
+
+  <div class="iot-callout">
+    <h3>Aplicações e exemplo de uso</h3>
+    <ul style="margin:0 0 10px; padding-left:18px;">
+          <li>Estufas e agricultura de precisão</li>
+          <li>Monitoramento de câmaras frias</li>
+          <li>Estações meteorológicas profissionais</li>
+    </ul>
+    <p style="margin:0;"><strong>Exemplo de projeto:</strong> Controle de umidade em uma estufa, acionando um umidificador quando o valor cai abaixo do limite configurado.</p>
+  </div>
+
+  <div class="table-scroll">
+    <table class="models-table">
+      <caption>Fabricantes / modelos comerciais</caption>
+      <thead><tr><th>Fabricante ou modelo</th></tr></thead>
+      <tbody>
+            <tr><td class="brand">Aosong (AM2302)</td></tr>
+            <tr><td class="brand">Adafruit (módulo com resistor integrado)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</article>
+
+<article class="robot-panel" id="lm35">
+  <div class="robot-head" style="grid-template-columns:1fr;">
+    <div>
+      <span class="kicker">Temperatura e Umidade</span>
+      <h2>LM35</h2>
+      <p>Sensor de temperatura analógico de precisão, entrega uma tensão diretamente proporcional à temperatura em graus Celsius.</p>
+    </div>
+  </div>
+
+  <div class="spec-grid">
+    <div class="spec-block">
+      <h3><span class="n">01</span> Princípio de funcionamento</h3>
+      <p style="margin:0; font-size:.92rem;">É um circuito integrado analógico: a tensão de saída sobe linearmente 10 mV para cada 1 °C, sem necessidade de calibração externa ou conversão complexa.</p>
+    </div>
+    <div class="spec-block">
+      <h3><span class="n">02</span> Especificações técnicas</h3>
+      <ul>
+          <li>Tensão de alimentação: 4 a 30 V</li>
+          <li>Faixa: -55 °C a 150 °C</li>
+          <li>Precisão: ±0,5 °C a 25 °C</li>
+          <li>Saída: 10 mV/°C</li>
+      </ul>
+      <p style="margin:12px 0 0; font-size:.85rem;"><strong>Tipo de sinal:</strong> Analógico (tensão proporcional)</p>
+    </div>
+  </div>
+
+  <div class="iot-callout">
+    <h3>Aplicações e exemplo de uso</h3>
+    <ul style="margin:0 0 10px; padding-left:18px;">
+          <li>Controle de temperatura de motores e painéis elétricos</li>
+          <li>Monitoramento térmico industrial</li>
+          <li>Incubadoras</li>
+    </ul>
+    <p style="margin:0;"><strong>Exemplo de projeto:</strong> Leitura via analogRead() convertida para °C multiplicando a tensão lida por 100.</p>
+  </div>
+
+  <div class="table-scroll">
+    <table class="models-table">
+      <caption>Fabricantes / modelos comerciais</caption>
+      <thead><tr><th>Fabricante ou modelo</th></tr></thead>
+      <tbody>
+            <tr><td class="brand">Texas Instruments (fabricante original)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</article>
+
+<article class="robot-panel" id="ds18b20">
+  <div class="robot-head" style="grid-template-columns:1fr;">
+    <div>
+      <span class="kicker">Temperatura e Umidade</span>
+      <h2>DS18B20</h2>
+      <p>Sensor digital de temperatura à prova d'água (versão em cápsula metálica), ideal para monitorar líquidos e ambientes externos.</p>
+    </div>
+  </div>
+
+  <div class="spec-grid">
+    <div class="spec-block">
+      <h3><span class="n">01</span> Princípio de funcionamento</h3>
+      <p style="margin:0; font-size:.92rem;">Utiliza o barramento 1-Wire: cada sensor possui um endereço único de 64 bits, permitindo ligar vários sensores no mesmo fio de dados.</p>
+    </div>
+    <div class="spec-block">
+      <h3><span class="n">02</span> Especificações técnicas</h3>
+      <ul>
+          <li>Tensão: 3 a 5,5 V</li>
+          <li>Faixa: -55 °C a 125 °C</li>
+          <li>Precisão: ±0,5 °C (-10 a 85 °C)</li>
+          <li>Resolução configurável: 9 a 12 bits</li>
+      </ul>
+      <p style="margin:12px 0 0; font-size:.85rem;"><strong>Tipo de sinal:</strong> Digital (barramento 1-Wire, múltiplos sensores no mesmo fio)</p>
+    </div>
+  </div>
+
+  <div class="iot-callout">
+    <h3>Aplicações e exemplo de uso</h3>
+    <ul style="margin:0 0 10px; padding-left:18px;">
+          <li>Monitoramento de tanques e reservatórios de líquidos</li>
+          <li>Sistemas de aquecimento solar</li>
+          <li>Monitoramento ambiental externo</li>
+    </ul>
+    <p style="margin:0;"><strong>Exemplo de projeto:</strong> Rede de 3 sensores DS18B20 medindo temperatura em pontos diferentes de um tanque, todos no mesmo barramento.</p>
+  </div>
+
+  <div class="table-scroll">
+    <table class="models-table">
+      <caption>Fabricantes / modelos comerciais</caption>
+      <thead><tr><th>Fabricante ou modelo</th></tr></thead>
+      <tbody>
+            <tr><td class="brand">Maxim Integrated / Analog Devices (fabricante original)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</article>
+
+<article class="robot-panel" id="ldr">
+  <div class="robot-head" style="grid-template-columns:1fr;">
+    <div>
+      <span class="kicker">Luminosidade</span>
+      <h2>LDR (Fotorresistor)</h2>
+      <p>Resistor sensível à luz (Light Dependent Resistor): sua resistência elétrica varia conforme a quantidade de luz incidente.</p>
+    </div>
+  </div>
+
+  <div class="spec-grid">
+    <div class="spec-block">
+      <h3><span class="n">01</span> Princípio de funcionamento</h3>
+      <p style="margin:0; font-size:.92rem;">O material semicondutor (geralmente sulfeto de cádmio) libera mais elétrons livres quanto mais luz recebe, diminuindo sua resistência; um divisor de tensão converte essa mudança em um sinal analógico.</p>
+    </div>
+    <div class="spec-block">
+      <h3><span class="n">02</span> Especificações técnicas</h3>
+      <ul>
+          <li>Resistência no escuro: >1 MΩ</li>
+          <li>Resistência sob luz: poucas centenas de Ω</li>
+          <li>Tempo de resposta: dezenas de ms</li>
+      </ul>
+      <p style="margin:12px 0 0; font-size:.85rem;"><strong>Tipo de sinal:</strong> Analógico (via divisor de tensão)</p>
+    </div>
+  </div>
+
+  <div class="iot-callout">
+    <h3>Aplicações e exemplo de uso</h3>
+    <ul style="margin:0 0 10px; padding-left:18px;">
+          <li>Controle automático de iluminação pública</li>
+          <li>Persianas e cortinas automatizadas</li>
+          <li>Detecção de dia/noite em estufas</li>
+    </ul>
+    <p style="margin:0;"><strong>Exemplo de projeto:</strong> Acionamento automático de uma luminária de rua quando o nível de luz ambiente cai abaixo de um limite.</p>
+  </div>
+
+  <div class="table-scroll">
+    <table class="models-table">
+      <caption>Fabricantes / modelos comerciais</caption>
+      <thead><tr><th>Fabricante ou modelo</th></tr></thead>
+      <tbody>
+            <tr><td class="brand">Perkin Elmer / diversos fabricantes genéricos (módulos GL5528, GL5516)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</article>
+
+<article class="robot-panel" id="bh1750">
+  <div class="robot-head" style="grid-template-columns:1fr;">
+    <div>
+      <span class="kicker">Luminosidade</span>
+      <h2>BH1750</h2>
+      <p>Sensor digital de intensidade luminosa que mede diretamente em lux, com maior precisão do que um LDR.</p>
+    </div>
+  </div>
+
+  <div class="spec-grid">
+    <div class="spec-block">
+      <h3><span class="n">01</span> Princípio de funcionamento</h3>
+      <p style="margin:0; font-size:.92rem;">Um fotodiodo capta a luz e um conversor A/D interno de 16 bits calcula diretamente o valor em lux, comunicado ao microcontrolador via barramento I2C.</p>
+    </div>
+    <div class="spec-block">
+      <h3><span class="n">02</span> Especificações técnicas</h3>
+      <ul>
+          <li>Tensão: 3 a 5 V (com regulador on-board)</li>
+          <li>Faixa: 1 a 65.535 lux</li>
+          <li>Resolução: 1 lux</li>
+          <li>Interface: I2C (endereço 0x23/0x5C)</li>
+      </ul>
+      <p style="margin:12px 0 0; font-size:.85rem;"><strong>Tipo de sinal:</strong> Digital (I2C)</p>
+    </div>
+  </div>
+
+  <div class="iot-callout">
+    <h3>Aplicações e exemplo de uso</h3>
+    <ul style="margin:0 0 10px; padding-left:18px;">
+          <li>Medição precisa de luminosidade em estufas</li>
+          <li>Ajuste automático de brilho de telas e luminárias</li>
+          <li>Estações meteorológicas</li>
+    </ul>
+    <p style="margin:0;"><strong>Exemplo de projeto:</strong> Leitura de lux via biblioteca I2C para ajustar automaticamente a intensidade de um painel de LED.</p>
+  </div>
+
+  <div class="table-scroll">
+    <table class="models-table">
+      <caption>Fabricantes / modelos comerciais</caption>
+      <thead><tr><th>Fabricante ou modelo</th></tr></thead>
+      <tbody>
+            <tr><td class="brand">ROHM Semiconductor (fabricante original do CI)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</article>
+
+<article class="robot-panel" id="hcsr04">
+  <div class="robot-head">
+    <div>
+      <span class="kicker">Distância e Movimento</span>
+      <h2>HC-SR04</h2>
+      <p>Sensor ultrassônico de distância, um dos mais populares em robótica e automação por seu baixo custo e boa precisão.</p>
+    </div>
+    <figure class="robot-diagram">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/HC%20SR04%20Ultrasonic%20Module.jpg" alt="HC-SR04" loading="lazy">
+      <figcaption>FIG. 07 — HC-SR04</figcaption>
+    </figure>
+  </div>
+
+  <div class="spec-grid">
+    <div class="spec-block">
+      <h3><span class="n">01</span> Princípio de funcionamento</h3>
+      <p style="margin:0; font-size:.92rem;">Emite um pulso ultrassônico de 40 kHz pelo transmissor; o tempo até o eco retornar ao receptor é usado para calcular a distância, já que a velocidade do som é conhecida.</p>
+    </div>
+    <div class="spec-block">
+      <h3><span class="n">02</span> Especificações técnicas</h3>
+      <ul>
+          <li>Tensão: 5 V</li>
+          <li>Faixa: 2 cm a 400 cm</li>
+          <li>Precisão: ~0,3 cm</li>
+          <li>Ângulo de medição: ~15°</li>
+      </ul>
+      <p style="margin:12px 0 0; font-size:.85rem;"><strong>Tipo de sinal:</strong> Digital (pinos Trigger/Echo, medição de tempo de pulso)</p>
+    </div>
+  </div>
+
+  <div class="iot-callout">
+    <h3>Aplicações e exemplo de uso</h3>
+    <ul style="margin:0 0 10px; padding-left:18px;">
+          <li>Detecção de obstáculos em robôs móveis</li>
+          <li>Medição de nível em reservatórios</li>
+          <li>Sistemas de estacionamento automatizado</li>
+    </ul>
+    <p style="margin:0;"><strong>Exemplo de projeto:</strong> Disparo de um pulso no pino Trigger e medição da duração do pulso no pino Echo com pulseIn() para calcular a distância.</p>
+  </div>
+
+  <div class="table-scroll">
+    <table class="models-table">
+      <caption>Fabricantes / modelos comerciais</caption>
+      <thead><tr><th>Fabricante ou modelo</th></tr></thead>
+      <tbody>
+            <tr><td class="brand">ITead Studio (módulo original)</td></tr>
+            <tr><td class="brand">Diversos fabricantes de módulos compatíveis</td></tr>
+      </tbody>
+    </table>
+  </div>
+</article>
+
+<article class="robot-panel" id="pir501">
+  <div class="robot-head" style="grid-template-columns:1fr;">
+    <div>
+      <span class="kicker">Distância e Movimento</span>
+      <h2>PIR HC-SR501</h2>
+      <p>Sensor infravermelho passivo de presença/movimento, detecta a radiação infravermelha emitida por corpos em movimento (como pessoas).</p>
+    </div>
+  </div>
+
+  <div class="spec-grid">
+    <div class="spec-block">
+      <h3><span class="n">01</span> Princípio de funcionamento</h3>
+      <p style="margin:0; font-size:.92rem;">Uma lente Fresnel concentra a radiação infravermelha de diferentes pontos do ambiente sobre um elemento piroelétrico; uma variação brusca no padrão de radiação captado indica movimento.</p>
+    </div>
+    <div class="spec-block">
+      <h3><span class="n">02</span> Especificações técnicas</h3>
+      <ul>
+          <li>Tensão: 4,5 a 20 V</li>
+          <li>Alcance: até 7 m</li>
+          <li>Ângulo de detecção: ~120°</li>
+          <li>Tempo de retenção do sinal: ajustável (potenciômetro)</li>
+      </ul>
+      <p style="margin:12px 0 0; font-size:.85rem;"><strong>Tipo de sinal:</strong> Digital (saída HIGH/LOW)</p>
+    </div>
+  </div>
+
+  <div class="iot-callout">
+    <h3>Aplicações e exemplo de uso</h3>
+    <ul style="margin:0 0 10px; padding-left:18px;">
+          <li>Iluminação automática de ambientes</li>
+          <li>Sistemas de alarme e segurança</li>
+          <li>Contagem de presença em salas</li>
+    </ul>
+    <p style="margin:0;"><strong>Exemplo de projeto:</strong> Acionamento de uma lâmpada por 30 segundos sempre que o sensor detecta movimento em um corredor.</p>
+  </div>
+
+  <div class="table-scroll">
+    <table class="models-table">
+      <caption>Fabricantes / modelos comerciais</caption>
+      <thead><tr><th>Fabricante ou modelo</th></tr></thead>
+      <tbody>
+            <tr><td class="brand">Diversos fabricantes de módulos genéricos (chip BISS0001)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</article>
+
+<article class="robot-panel" id="lj12a3">
+  <div class="robot-head" style="grid-template-columns:1fr;">
+    <div>
+      <span class="kicker">Proximidade</span>
+      <h2>Sensor Indutivo LJ12A3</h2>
+      <p>Sensor de proximidade que detecta objetos metálicos sem contato físico, muito usado em linhas de produção industriais.</p>
+    </div>
+  </div>
+
+  <div class="spec-grid">
+    <div class="spec-block">
+      <h3><span class="n">01</span> Princípio de funcionamento</h3>
+      <p style="margin:0; font-size:.92rem;">Uma bobina interna gera um campo eletromagnético oscilante; a aproximação de um metal induz correntes parasitas que amortecem o campo, e o circuito detecta essa variação como presença de objeto.</p>
+    </div>
+    <div class="spec-block">
+      <h3><span class="n">02</span> Especificações técnicas</h3>
+      <ul>
+          <li>Tensão: 6 a 36 V DC</li>
+          <li>Distância de detecção: até 4 mm (típico)</li>
+          <li>Saída: NPN ou PNP, NA ou NF</li>
+      </ul>
+      <p style="margin:12px 0 0; font-size:.85rem;"><strong>Tipo de sinal:</strong> Digital (saída a transistor NPN/PNP)</p>
+    </div>
+  </div>
+
+  <div class="iot-callout">
+    <h3>Aplicações e exemplo de uso</h3>
+    <ul style="margin:0 0 10px; padding-left:18px;">
+          <li>Contagem de peças metálicas em esteiras</li>
+          <li>Detecção de fim de curso em máquinas</li>
+          <li>Sensoriamento em CLPs industriais</li>
+    </ul>
+    <p style="margin:0;"><strong>Exemplo de projeto:</strong> Contagem de latas metálicas passando em uma esteira transportadora, incrementando um contador a cada pulso.</p>
+  </div>
+
+  <div class="table-scroll">
+    <table class="models-table">
+      <caption>Fabricantes / modelos comerciais</caption>
+      <thead><tr><th>Fabricante ou modelo</th></tr></thead>
+      <tbody>
+            <tr><td class="brand">Omron</td></tr>
+            <tr><td class="brand">Autonics</td></tr>
+            <tr><td class="brand">Diversos fabricantes industriais</td></tr>
+      </tbody>
+    </table>
+  </div>
+</article>
+
+<article class="robot-panel" id="lj18a3">
+  <div class="robot-head" style="grid-template-columns:1fr;">
+    <div>
+      <span class="kicker">Proximidade</span>
+      <h2>Sensor Capacitivo LJ18A3</h2>
+      <p>Sensor de proximidade capaz de detectar tanto materiais sólidos quanto líquidos, metálicos ou não.</p>
+    </div>
+  </div>
+
+  <div class="spec-grid">
+    <div class="spec-block">
+      <h3><span class="n">01</span> Princípio de funcionamento</h3>
+      <p style="margin:0; font-size:.92rem;">Duas placas internas formam um capacitor; a aproximação de qualquer material (mesmo não metálico) altera a constante dielétrica do meio e, consequentemente, a capacitância medida pelo circuito.</p>
+    </div>
+    <div class="spec-block">
+      <h3><span class="n">02</span> Especificações técnicas</h3>
+      <ul>
+          <li>Tensão: 6 a 36 V DC</li>
+          <li>Distância de detecção: até 10 mm (ajustável)</li>
+          <li>Saída: NPN ou PNP, NA ou NF</li>
+      </ul>
+      <p style="margin:12px 0 0; font-size:.85rem;"><strong>Tipo de sinal:</strong> Digital (saída a transistor NPN/PNP)</p>
+    </div>
+  </div>
+
+  <div class="iot-callout">
+    <h3>Aplicações e exemplo de uso</h3>
+    <ul style="margin:0 0 10px; padding-left:18px;">
+          <li>Detecção de nível de líquidos através de paredes de tanques</li>
+          <li>Controle de embalagens plásticas</li>
+          <li>Detecção de sólidos não metálicos</li>
+    </ul>
+    <p style="margin:0;"><strong>Exemplo de projeto:</strong> Detecção da presença de líquido dentro de um tanque plástico sem necessidade de contato direto com o produto.</p>
+  </div>
+
+  <div class="table-scroll">
+    <table class="models-table">
+      <caption>Fabricantes / modelos comerciais</caption>
+      <thead><tr><th>Fabricante ou modelo</th></tr></thead>
+      <tbody>
+            <tr><td class="brand">Omron</td></tr>
+            <tr><td class="brand">Autonics</td></tr>
+            <tr><td class="brand">Diversos fabricantes industriais</td></tr>
+      </tbody>
+    </table>
+  </div>
+</article>
+
+<article class="robot-panel" id="mq2">
+  <div class="robot-head" style="grid-template-columns:1fr;">
+    <div>
+      <span class="kicker">Gás</span>
+      <h2>MQ-2</h2>
+      <p>Sensor semicondutor para detecção de gases combustíveis e fumaça, muito usado em sistemas de segurança contra incêndio e vazamentos.</p>
+    </div>
+  </div>
+
+  <div class="spec-grid">
+    <div class="spec-block">
+      <h3><span class="n">01</span> Princípio de funcionamento</h3>
+      <p style="margin:0; font-size:.92rem;">Um elemento sensível de dióxido de estanho (SnO₂) reduz sua resistência elétrica na presença dos gases-alvo (GLP, propano, metano, fumaça); o circuito converte essa variação em um sinal de tensão.</p>
+    </div>
+    <div class="spec-block">
+      <h3><span class="n">02</span> Especificações técnicas</h3>
+      <ul>
+          <li>Tensão: 5 V</li>
+          <li>Detecta: GLP, propano, metano, fumaça, álcool</li>
+          <li>Tempo de pré-aquecimento: ~1–2 minutos</li>
+          <li>Saída analógica e digital (com comparador)</li>
+      </ul>
+      <p style="margin:12px 0 0; font-size:.85rem;"><strong>Tipo de sinal:</strong> Analógico (A0) e Digital (D0, via potenciômetro comparador)</p>
+    </div>
+  </div>
+
+  <div class="iot-callout">
+    <h3>Aplicações e exemplo de uso</h3>
+    <ul style="margin:0 0 10px; padding-left:18px;">
+          <li>Detectores de vazamento de gás doméstico e industrial</li>
+          <li>Alarmes de incêndio e fumaça</li>
+          <li>Ventilação automática de ambientes</li>
+    </ul>
+    <p style="margin:0;"><strong>Exemplo de projeto:</strong> Acionamento de um alarme sonoro e de uma válvula solenoide quando a concentração de gás ultrapassa um limite.</p>
+  </div>
+
+  <div class="table-scroll">
+    <table class="models-table">
+      <caption>Fabricantes / modelos comerciais</caption>
+      <thead><tr><th>Fabricante ou modelo</th></tr></thead>
+      <tbody>
+            <tr><td class="brand">Winsen Electronics (fabricante original do sensor)</td></tr>
+            <tr><td class="brand">Diversos fabricantes de módulo</td></tr>
+      </tbody>
+    </table>
+  </div>
+</article>
+
+<article class="robot-panel" id="mq135">
+  <div class="robot-head" style="grid-template-columns:1fr;">
+    <div>
+      <span class="kicker">Gás</span>
+      <h2>MQ-135</h2>
+      <p>Sensor para monitoramento da qualidade do ar, sensível a uma ampla gama de gases poluentes.</p>
+    </div>
+  </div>
+
+  <div class="spec-grid">
+    <div class="spec-block">
+      <h3><span class="n">01</span> Princípio de funcionamento</h3>
+      <p style="margin:0; font-size:.92rem;">Mesmo princípio do MQ-2 (elemento semicondutor SnO₂), mas com sensibilidade otimizada para amônia, benzeno, CO₂, fumaça e outros compostos associados à poluição do ar.</p>
+    </div>
+    <div class="spec-block">
+      <h3><span class="n">02</span> Especificações técnicas</h3>
+      <ul>
+          <li>Tensão: 5 V</li>
+          <li>Detecta: NH₃, NOx, benzeno, fumaça, CO₂</li>
+          <li>Tempo de pré-aquecimento: ~20 s a alguns minutos para estabilizar</li>
+      </ul>
+      <p style="margin:12px 0 0; font-size:.85rem;"><strong>Tipo de sinal:</strong> Analógico (A0) e Digital (D0, via potenciômetro comparador)</p>
+    </div>
+  </div>
+
+  <div class="iot-callout">
+    <h3>Aplicações e exemplo de uso</h3>
+    <ul style="margin:0 0 10px; padding-left:18px;">
+          <li>Monitoramento de qualidade do ar interno</li>
+          <li>Estações de qualidade do ar urbano</li>
+          <li>Ventilação inteligente em ambientes fechados</li>
+    </ul>
+    <p style="margin:0;"><strong>Exemplo de projeto:</strong> Publicação do índice de qualidade do ar em um dashboard, acionando exaustores quando o valor ultrapassa o limite seguro.</p>
+  </div>
+
+  <div class="table-scroll">
+    <table class="models-table">
+      <caption>Fabricantes / modelos comerciais</caption>
+      <thead><tr><th>Fabricante ou modelo</th></tr></thead>
+      <tbody>
+            <tr><td class="brand">Winsen Electronics (fabricante original do sensor)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</article>
+
+<article class="robot-panel" id="soloumid">
+  <div class="robot-head" style="grid-template-columns:1fr;">
+    <div>
+      <span class="kicker">Solo e Água</span>
+      <h2>Sensor Capacitivo de Umidade do Solo</h2>
+      <p>Mede a umidade do solo sem corrosão do eletrodo, ideal para irrigação automatizada e agricultura inteligente.</p>
+    </div>
+  </div>
+
+  <div class="spec-grid">
+    <div class="spec-block">
+      <h3><span class="n">01</span> Princípio de funcionamento</h3>
+      <p style="margin:0; font-size:.92rem;">Duas placas capacitivas inseridas no solo formam um capacitor cuja capacitância varia conforme o teor de água no solo (a água aumenta a constante dielétrica do meio).</p>
+    </div>
+    <div class="spec-block">
+      <h3><span class="n">02</span> Especificações técnicas</h3>
+      <ul>
+          <li>Tensão: 3,3 a 5,5 V</li>
+          <li>Saída: analógica (0–3 V aprox.)</li>
+          <li>Material: PCB revestida (não corrosiva, ao contrário dos sensores resistivos)</li>
+      </ul>
+      <p style="margin:12px 0 0; font-size:.85rem;"><strong>Tipo de sinal:</strong> Analógico</p>
+    </div>
+  </div>
+
+  <div class="iot-callout">
+    <h3>Aplicações e exemplo de uso</h3>
+    <ul style="margin:0 0 10px; padding-left:18px;">
+          <li>Irrigação automática de hortas e plantações</li>
+          <li>Agricultura de precisão</li>
+          <li>Monitoramento de vasos inteligentes</li>
+    </ul>
+    <p style="margin:0;"><strong>Exemplo de projeto:</strong> Acionamento de uma bomba d'água por 5 segundos sempre que a leitura de umidade do solo cai abaixo do limite configurado.</p>
+  </div>
+
+  <div class="table-scroll">
+    <table class="models-table">
+      <caption>Fabricantes / modelos comerciais</caption>
+      <thead><tr><th>Fabricante ou modelo</th></tr></thead>
+      <tbody>
+            <tr><td class="brand">Diversos fabricantes genéricos (módulos v1.2 amplamente disponíveis)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</article>
+
+<article class="robot-panel" id="fc37">
+  <div class="robot-head" style="grid-template-columns:1fr;">
+    <div>
+      <span class="kicker">Solo e Água</span>
+      <h2>Sensor de Chuva FC-37</h2>
+      <p>Detecta a presença e intensidade de chuva através de uma placa com trilhas condutoras expostas.</p>
+    </div>
+  </div>
+
+  <div class="spec-grid">
+    <div class="spec-block">
+      <h3><span class="n">01</span> Princípio de funcionamento</h3>
+      <p style="margin:0; font-size:.92rem;">Gotas de água sobre a placa formam pequenas pontes condutoras entre as trilhas, reduzindo a resistência medida; quanto mais água, menor a resistência e maior o sinal analógico.</p>
+    </div>
+    <div class="spec-block">
+      <h3><span class="n">02</span> Especificações técnicas</h3>
+      <ul>
+          <li>Tensão: 3,3 a 5 V</li>
+          <li>Saída: analógica e digital (com comparador)</li>
+          <li>Placa sensora exposta, sujeita a oxidação com o tempo</li>
+      </ul>
+      <p style="margin:12px 0 0; font-size:.85rem;"><strong>Tipo de sinal:</strong> Analógico (A0) e Digital (D0, via potenciômetro comparador)</p>
+    </div>
+  </div>
+
+  <div class="iot-callout">
+    <h3>Aplicações e exemplo de uso</h3>
+    <ul style="margin:0 0 10px; padding-left:18px;">
+          <li>Fechamento automático de coberturas e toldos</li>
+          <li>Sistemas de irrigação que pausam com chuva</li>
+          <li>Estações meteorológicas residenciais</li>
+    </ul>
+    <p style="margin:0;"><strong>Exemplo de projeto:</strong> Suspensão automática do ciclo de irrigação de um jardim quando o sensor detecta chuva.</p>
+  </div>
+
+  <div class="table-scroll">
+    <table class="models-table">
+      <caption>Fabricantes / modelos comerciais</caption>
+      <thead><tr><th>Fabricante ou modelo</th></tr></thead>
+      <tbody>
+            <tr><td class="brand">Diversos fabricantes genéricos (módulo amplamente disponível)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</article>
+
+<article class="robot-panel" id="boia">
+  <div class="robot-head" style="grid-template-columns:1fr;">
+    <div>
+      <span class="kicker">Solo e Água</span>
+      <h2>Sensor de Nível (Boia)</h2>
+      <p>Interruptor mecânico de nível: uma boia com ímã interno aciona um reed switch conforme sobe ou desce com o líquido.</p>
+    </div>
+  </div>
+
+  <div class="spec-grid">
+    <div class="spec-block">
+      <h3><span class="n">01</span> Princípio de funcionamento</h3>
+      <p style="margin:0; font-size:.92rem;">A boia flutua sobre a superfície do líquido; ao atingir a posição configurada, o ímã em seu interior aproxima-se do reed switch, fechando (ou abrindo) o contato elétrico.</p>
+    </div>
+    <div class="spec-block">
+      <h3><span class="n">02</span> Especificações técnicas</h3>
+      <ul>
+          <li>Tensão de contato: até 100–240 V AC/DC (conforme modelo)</li>
+          <li>Saída: contato seco (NA ou NF)</li>
+          <li>Instalação vertical ou lateral</li>
+      </ul>
+      <p style="margin:12px 0 0; font-size:.85rem;"><strong>Tipo de sinal:</strong> Digital (contato seco, tipo chave)</p>
+    </div>
+  </div>
+
+  <div class="iot-callout">
+    <h3>Aplicações e exemplo de uso</h3>
+    <ul style="margin:0 0 10px; padding-left:18px;">
+          <li>Controle de nível em caixas d'água e reservatórios</li>
+          <li>Proteção contra funcionamento a seco de bombas</li>
+          <li>Alarme de transbordamento</li>
+    </ul>
+    <p style="margin:0;"><strong>Exemplo de projeto:</strong> Acionamento automático de uma bomba de recalque quando o nível da caixa d'água atinge a boia inferior.</p>
+  </div>
+
+  <div class="table-scroll">
+    <table class="models-table">
+      <caption>Fabricantes / modelos comerciais</caption>
+      <thead><tr><th>Fabricante ou modelo</th></tr></thead>
+      <tbody>
+            <tr><td class="brand">Diversos fabricantes industriais e residenciais (boias de PVC ou inox)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</article>
+
+<article class="robot-panel" id="yfs201">
+  <div class="robot-head" style="grid-template-columns:1fr;">
+    <div>
+      <span class="kicker">Solo e Água</span>
+      <h2>YF-S201</h2>
+      <p>Sensor de fluxo (vazão) de água, muito usado para medir o volume de líquido que passa por uma tubulação.</p>
+    </div>
+  </div>
+
+  <div class="spec-grid">
+    <div class="spec-block">
+      <h3><span class="n">01</span> Princípio de funcionamento</h3>
+      <p style="margin:0; font-size:.92rem;">A água que passa pelo sensor gira uma pequena turbina interna; um sensor de efeito Hall conta os giros e gera pulsos elétricos proporcionais à vazão.</p>
+    </div>
+    <div class="spec-block">
+      <h3><span class="n">02</span> Especificações técnicas</h3>
+      <ul>
+          <li>Tensão: 5 a 24 V</li>
+          <li>Faixa de vazão: 1 a 30 L/min</li>
+          <li>Saída: pulsos digitais (~4,5 pulsos por litro)</li>
+      </ul>
+      <p style="margin:12px 0 0; font-size:.85rem;"><strong>Tipo de sinal:</strong> Digital (pulsos por rotação, via interrupção)</p>
+    </div>
+  </div>
+
+  <div class="iot-callout">
+    <h3>Aplicações e exemplo de uso</h3>
+    <ul style="margin:0 0 10px; padding-left:18px;">
+          <li>Medição de consumo de água residencial e industrial</li>
+          <li>Controle de dosagem em processos</li>
+          <li>Detecção de vazamentos por consumo anômalo</li>
+    </ul>
+    <p style="margin:0;"><strong>Exemplo de projeto:</strong> Contagem de pulsos via interrupção para calcular litros consumidos em tempo real em um sistema de irrigação.</p>
+  </div>
+
+  <div class="table-scroll">
+    <table class="models-table">
+      <caption>Fabricantes / modelos comerciais</caption>
+      <thead><tr><th>Fabricante ou modelo</th></tr></thead>
+      <tbody>
+            <tr><td class="brand">YF-Tech (fabricante original)</td></tr>
+            <tr><td class="brand">Diversos fabricantes de módulos compatíveis</td></tr>
+      </tbody>
+    </table>
+  </div>
+</article>
+
+<article class="robot-panel" id="acs712">
+  <div class="robot-head" style="grid-template-columns:1fr;">
+    <div>
+      <span class="kicker">Grandezas Elétricas</span>
+      <h2>ACS712</h2>
+      <p>Sensor de corrente elétrica por efeito Hall, permite medir corrente AC ou DC sem cortar o circuito.</p>
+    </div>
+  </div>
+
+  <div class="spec-grid">
+    <div class="spec-block">
+      <h3><span class="n">01</span> Princípio de funcionamento</h3>
+      <p style="margin:0; font-size:.92rem;">A corrente que passa por uma trilha condutora interna gera um campo magnético proporcional; um elemento de efeito Hall integrado converte esse campo em uma tensão de saída proporcional à corrente.</p>
+    </div>
+    <div class="spec-block">
+      <h3><span class="n">02</span> Especificações técnicas</h3>
+      <ul>
+          <li>Tensão de alimentação: 5 V</li>
+          <li>Faixas comuns: ±5A, ±20A ou ±30A (conforme modelo)</li>
+          <li>Sensibilidade: 66 a 185 mV/A</li>
+          <li>Isolação galvânica entre entrada e saída</li>
+      </ul>
+      <p style="margin:12px 0 0; font-size:.85rem;"><strong>Tipo de sinal:</strong> Analógico (tensão proporcional à corrente)</p>
+    </div>
+  </div>
+
+  <div class="iot-callout">
+    <h3>Aplicações e exemplo de uso</h3>
+    <ul style="margin:0 0 10px; padding-left:18px;">
+          <li>Monitoramento de consumo de energia de motores e equipamentos</li>
+          <li>Proteção contra sobrecorrente</li>
+          <li>Medição de energia (IoT energético)</li>
+    </ul>
+    <p style="margin:0;"><strong>Exemplo de projeto:</strong> Leitura contínua da corrente de um motor para detectar sobrecarga e desligar o sistema automaticamente.</p>
+  </div>
+
+  <div class="table-scroll">
+    <table class="models-table">
+      <caption>Fabricantes / modelos comerciais</caption>
+      <thead><tr><th>Fabricante ou modelo</th></tr></thead>
+      <tbody>
+            <tr><td class="brand">Allegro MicroSystems (fabricante original do CI)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</article>
+
+<article class="robot-panel" id="zmpt101b">
+  <div class="robot-head" style="grid-template-columns:1fr;">
+    <div>
+      <span class="kicker">Grandezas Elétricas</span>
+      <h2>ZMPT101B</h2>
+      <p>Sensor de tensão alternada (CA), utilizado para medir a tensão da rede elétrica de forma segura e isolada.</p>
+    </div>
+  </div>
+
+  <div class="spec-grid">
+    <div class="spec-block">
+      <h3><span class="n">01</span> Princípio de funcionamento</h3>
+      <p style="margin:0; font-size:.92rem;">Um transformador de precisão reduz e isola a tensão da rede elétrica; o sinal reduzido é condicionado por um circuito amplificador/comparador para leitura segura pelo microcontrolador.</p>
+    </div>
+    <div class="spec-block">
+      <h3><span class="n">02</span> Especificações técnicas</h3>
+      <ul>
+          <li>Tensão de entrada: até 250 V AC</li>
+          <li>Saída: sinal analógico proporcional (isolado galvanicamente)</li>
+          <li>Alimentação do módulo: 5 V</li>
+      </ul>
+      <p style="margin:12px 0 0; font-size:.85rem;"><strong>Tipo de sinal:</strong> Analógico</p>
+    </div>
+  </div>
+
+  <div class="iot-callout">
+    <h3>Aplicações e exemplo de uso</h3>
+    <ul style="margin:0 0 10px; padding-left:18px;">
+          <li>Monitoramento de tensão da rede elétrica</li>
+          <li>Estabilizadores e no-breaks inteligentes</li>
+          <li>Medidores de energia residenciais e industriais</li>
+    </ul>
+    <p style="margin:0;"><strong>Exemplo de projeto:</strong> Medição da tensão RMS da rede para alertar sobre quedas ou picos de energia em um painel elétrico.</p>
+  </div>
+
+  <div class="table-scroll">
+    <table class="models-table">
+      <caption>Fabricantes / modelos comerciais</caption>
+      <thead><tr><th>Fabricante ou modelo</th></tr></thead>
+      <tbody>
+            <tr><td class="brand">ZMPT (fabricante do transformador)</td></tr>
+            <tr><td class="brand">Diversos fabricantes de módulo</td></tr>
+      </tbody>
+    </table>
+  </div>
+</article>
+
+<article class="robot-panel" id="sw420">
+  <div class="robot-head" style="grid-template-columns:1fr;">
+    <div>
+      <span class="kicker">Mecânico e Rotação</span>
+      <h2>SW-420</h2>
+      <p>Sensor de vibração de baixo custo, detecta choques e vibrações mecânicas em máquinas e estruturas.</p>
+    </div>
+  </div>
+
+  <div class="spec-grid">
+    <div class="spec-block">
+      <h3><span class="n">01</span> Princípio de funcionamento</h3>
+      <p style="margin:0; font-size:.92rem;">Uma mola/esfera metálica dentro de um tubo faz ou desfaz o contato elétrico interno conforme o dispositivo sofre vibração ou impacto, gerando pulsos digitais na saída.</p>
+    </div>
+    <div class="spec-block">
+      <h3><span class="n">02</span> Especificações técnicas</h3>
+      <ul>
+          <li>Tensão: 3,3 a 5 V</li>
+          <li>Saída: digital (com comparador ajustável)</li>
+          <li>Sensibilidade regulável via potenciômetro</li>
+      </ul>
+      <p style="margin:12px 0 0; font-size:.85rem;"><strong>Tipo de sinal:</strong> Digital</p>
+    </div>
+  </div>
+
+  <div class="iot-callout">
+    <h3>Aplicações e exemplo de uso</h3>
+    <ul style="margin:0 0 10px; padding-left:18px;">
+          <li>Detecção de vibração anômala em motores e rolamentos</li>
+          <li>Alarmes contra arrombamento/impacto</li>
+          <li>Monitoramento preditivo de máquinas</li>
+    </ul>
+    <p style="margin:0;"><strong>Exemplo de projeto:</strong> Disparo de um alerta de manutenção preventiva quando a vibração de um motor ultrapassa o padrão normal.</p>
+  </div>
+
+  <div class="table-scroll">
+    <table class="models-table">
+      <caption>Fabricantes / modelos comerciais</caption>
+      <thead><tr><th>Fabricante ou modelo</th></tr></thead>
+      <tbody>
+            <tr><td class="brand">Diversos fabricantes genéricos de módulo (amplamente disponível)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</article>
+
+<article class="robot-panel" id="halla3144">
+  <div class="robot-head" style="grid-template-columns:1fr;">
+    <div>
+      <span class="kicker">Mecânico e Rotação</span>
+      <h2>Sensor Hall A3144</h2>
+      <p>Sensor de efeito Hall digital, detecta a presença de campo magnético — muito usado para medir rotação e velocidade.</p>
+    </div>
+  </div>
+
+  <div class="spec-grid">
+    <div class="spec-block">
+      <h3><span class="n">01</span> Princípio de funcionamento</h3>
+      <p style="margin:0; font-size:.92rem;">Quando um ímã passa perto do sensor, o efeito Hall gera uma tensão proporcional ao campo magnético; um comparador interno converte isso em uma saída digital (presença/ausência de ímã).</p>
+    </div>
+    <div class="spec-block">
+      <h3><span class="n">02</span> Especificações técnicas</h3>
+      <ul>
+          <li>Tensão: 4,5 a 24 V</li>
+          <li>Saída: digital (coletor aberto)</li>
+          <li>Detecta apenas um polo magnético (unipolar)</li>
+      </ul>
+      <p style="margin:12px 0 0; font-size:.85rem;"><strong>Tipo de sinal:</strong> Digital</p>
+    </div>
+  </div>
+
+  <div class="iot-callout">
+    <h3>Aplicações e exemplo de uso</h3>
+    <ul style="margin:0 0 10px; padding-left:18px;">
+          <li>Medição de RPM em motores e rodas (tacômetro)</li>
+          <li>Sensores de posição em portas e portões</li>
+          <li>Contadores de rotação em esteiras</li>
+    </ul>
+    <p style="margin:0;"><strong>Exemplo de projeto:</strong> Contagem de pulsos gerados por um ímã fixado em uma roda para calcular a velocidade de rotação em RPM.</p>
+  </div>
+
+  <div class="table-scroll">
+    <table class="models-table">
+      <caption>Fabricantes / modelos comerciais</caption>
+      <thead><tr><th>Fabricante ou modelo</th></tr></thead>
+      <tbody>
+            <tr><td class="brand">Allegro MicroSystems / Honeywell (fabricantes do CI original)</td></tr>
+            <tr><td class="brand">Diversos fabricantes de módulo</td></tr>
+      </tbody>
+    </table>
+  </div>
+</article>
+
+<article class="robot-panel" id="ky040">
+  <div class="robot-head" style="grid-template-columns:1fr;">
+    <div>
+      <span class="kicker">Mecânico e Rotação</span>
+      <h2>Encoder Incremental KY-040</h2>
+      <p>Encoder rotativo manual que permite controlar posição, direção de giro e, em alguns modelos, contar rotações.</p>
+    </div>
+  </div>
+
+  <div class="spec-grid">
+    <div class="spec-block">
+      <h3><span class="n">01</span> Princípio de funcionamento</h3>
+      <p style="margin:0; font-size:.92rem;">Dois contatos internos (A e B) defasados em 90° são acionados conforme o eixo gira; a ordem em que os sinais mudam indica a direção do giro, e cada pulso representa um incremento de posição.</p>
+    </div>
+    <div class="spec-block">
+      <h3><span class="n">02</span> Especificações técnicas</h3>
+      <ul>
+          <li>Tensão: 5 V</li>
+          <li>Saída: 2 canais digitais (A e B) + botão de pressão integrado</li>
+          <li>Resolução: 20 pulsos por volta (modelo comum)</li>
+      </ul>
+      <p style="margin:12px 0 0; font-size:.85rem;"><strong>Tipo de sinal:</strong> Digital (quadratura, 2 canais + interrupção)</p>
+    </div>
+  </div>
+
+  <div class="iot-callout">
+    <h3>Aplicações e exemplo de uso</h3>
+    <ul style="margin:0 0 10px; padding-left:18px;">
+          <li>Controle de posição em máquinas CNC</li>
+          <li>Interfaces de usuário (ajuste de valores, menus)</li>
+          <li>Contadores de rotação de baixo custo</li>
+    </ul>
+    <p style="margin:0;"><strong>Exemplo de projeto:</strong> Leitura da direção de giro para incrementar ou decrementar um valor exibido em um display, com o botão central como confirmação.</p>
+  </div>
+
+  <div class="table-scroll">
+    <table class="models-table">
+      <caption>Fabricantes / modelos comerciais</caption>
+      <thead><tr><th>Fabricante ou modelo</th></tr></thead>
+      <tbody>
+            <tr><td class="brand">Diversos fabricantes genéricos de módulo (amplamente disponível)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</article>
+
+<article class="robot-panel" id="mfrc522">
+  <div class="robot-head" style="grid-template-columns:1fr;">
+    <div>
+      <span class="kicker">Identificação e Peso</span>
+      <h2>MFRC522 (RFID)</h2>
+      <p>Módulo leitor/gravador de cartões RFID de 13,56 MHz, usado para controle de acesso e identificação de objetos.</p>
+    </div>
+  </div>
+
+  <div class="spec-grid">
+    <div class="spec-block">
+      <h3><span class="n">01</span> Princípio de funcionamento</h3>
+      <p style="margin:0; font-size:.92rem;">O módulo emite um campo eletromagnético que alimenta o chip passivo do cartão/tag por indução; o cartão responde com seu identificador único, que o leitor decodifica via comunicação SPI.</p>
+    </div>
+    <div class="spec-block">
+      <h3><span class="n">02</span> Especificações técnicas</h3>
+      <ul>
+          <li>Tensão: 3,3 V</li>
+          <li>Frequência: 13,56 MHz</li>
+          <li>Alcance de leitura: até ~5 cm</li>
+          <li>Compatível com cartões MIFARE</li>
+      </ul>
+      <p style="margin:12px 0 0; font-size:.85rem;"><strong>Tipo de sinal:</strong> Digital (SPI)</p>
+    </div>
+  </div>
+
+  <div class="iot-callout">
+    <h3>Aplicações e exemplo de uso</h3>
+    <ul style="margin:0 0 10px; padding-left:18px;">
+          <li>Controle de acesso a salas e prédios</li>
+          <li>Identificação de peças em linhas de produção</li>
+          <li>Bilhetagem eletrônica</li>
+    </ul>
+    <p style="margin:0;"><strong>Exemplo de projeto:</strong> Liberação de uma catraca ou fechadura eletrônica ao aproximar um cartão cadastrado do leitor.</p>
+  </div>
+
+  <div class="table-scroll">
+    <table class="models-table">
+      <caption>Fabricantes / modelos comerciais</caption>
+      <thead><tr><th>Fabricante ou modelo</th></tr></thead>
+      <tbody>
+            <tr><td class="brand">NXP Semiconductors (fabricante original do CI MFRC522)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</article>
+
+<article class="robot-panel" id="celulacarga">
+  <div class="robot-head" style="grid-template-columns:1fr;">
+    <div>
+      <span class="kicker">Identificação e Peso</span>
+      <h2>Célula de Carga + HX711</h2>
+      <p>Conjunto para medição de peso: a célula de carga deforma-se sob peso e o módulo HX711 amplifica e digitaliza o sinal.</p>
+    </div>
+  </div>
+
+  <div class="spec-grid">
+    <div class="spec-block">
+      <h3><span class="n">01</span> Princípio de funcionamento</h3>
+      <p style="margin:0; font-size:.92rem;">A célula de carga contém extensômetros (strain gauges) que mudam de resistência ao se deformar sob peso; o HX711 é um conversor A/D de 24 bits dedicado a amplificar esse sinal muito pequeno com alta precisão.</p>
+    </div>
+    <div class="spec-block">
+      <h3><span class="n">02</span> Especificações técnicas</h3>
+      <ul>
+          <li>Tensão HX711: 2,6 a 5,5 V</li>
+          <li>Resolução: 24 bits</li>
+          <li>Capacidade da célula: varia por modelo (1 kg a várias toneladas)</li>
+      </ul>
+      <p style="margin:12px 0 0; font-size:.85rem;"><strong>Tipo de sinal:</strong> Digital (protocolo síncrono proprietário do HX711, 2 fios)</p>
+    </div>
+  </div>
+
+  <div class="iot-callout">
+    <h3>Aplicações e exemplo de uso</h3>
+    <ul style="margin:0 0 10px; padding-left:18px;">
+          <li>Balanças industriais e comerciais</li>
+          <li>Sistemas de pesagem em silos e esteiras</li>
+          <li>Controle de dosagem por peso</li>
+    </ul>
+    <p style="margin:0;"><strong>Exemplo de projeto:</strong> Leitura contínua do peso em uma balança industrial via biblioteca HX711, calibrada com um peso de referência conhecido.</p>
+  </div>
+
+  <div class="table-scroll">
+    <table class="models-table">
+      <caption>Fabricantes / modelos comerciais</caption>
+      <thead><tr><th>Fabricante ou modelo</th></tr></thead>
+      <tbody>
+            <tr><td class="brand">Avia Semiconductor (fabricante do CI HX711)</td></tr>
+            <tr><td class="brand">Diversos fabricantes de células de carga</td></tr>
+      </tbody>
+    </table>
+  </div>
+</article>
+
+<article class="robot-panel" id="ky037">
+  <div class="robot-head" style="grid-template-columns:1fr;">
+    <div>
+      <span class="kicker">Som e Chama</span>
+      <h2>KY-037 (Sensor de Som)</h2>
+      <p>Módulo sensor de som/ruído baseado em microfone de eletreto, detecta a intensidade sonora do ambiente.</p>
+    </div>
+  </div>
+
+  <div class="spec-grid">
+    <div class="spec-block">
+      <h3><span class="n">01</span> Princípio de funcionamento</h3>
+      <p style="margin:0; font-size:.92rem;">O microfone converte ondas sonoras em um sinal elétrico analógico; um amplificador operacional no módulo eleva o sinal e um comparador gera uma saída digital quando o som ultrapassa um limiar ajustável.</p>
+    </div>
+    <div class="spec-block">
+      <h3><span class="n">02</span> Especificações técnicas</h3>
+      <ul>
+          <li>Tensão: 5 V</li>
+          <li>Saída: analógica e digital (com potenciômetro comparador)</li>
+          <li>Sensibilidade ajustável</li>
+      </ul>
+      <p style="margin:12px 0 0; font-size:.85rem;"><strong>Tipo de sinal:</strong> Analógico (A0) e Digital (D0, via potenciômetro comparador)</p>
+    </div>
+  </div>
+
+  <div class="iot-callout">
+    <h3>Aplicações e exemplo de uso</h3>
+    <ul style="margin:0 0 10px; padding-left:18px;">
+          <li>Detecção de ruído excessivo em ambientes industriais</li>
+          <li>Sistemas de segurança acionados por som</li>
+          <li>Projetos de automação residencial por palma/som</li>
+    </ul>
+    <p style="margin:0;"><strong>Exemplo de projeto:</strong> Acionamento de uma luz ao detectar uma palma, usando a saída digital do módulo como gatilho.</p>
+  </div>
+
+  <div class="table-scroll">
+    <table class="models-table">
+      <caption>Fabricantes / modelos comerciais</caption>
+      <thead><tr><th>Fabricante ou modelo</th></tr></thead>
+      <tbody>
+            <tr><td class="brand">Diversos fabricantes genéricos de módulo (amplamente disponível)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</article>
+
+<article class="robot-panel" id="chamair">
+  <div class="robot-head" style="grid-template-columns:1fr;">
+    <div>
+      <span class="kicker">Som e Chama</span>
+      <h2>Sensor de Chama IR</h2>
+      <p>Detecta a radiação infravermelha característica de chamas, permitindo identificar princípios de incêndio rapidamente.</p>
+    </div>
+  </div>
+
+  <div class="spec-grid">
+    <div class="spec-block">
+      <h3><span class="n">01</span> Princípio de funcionamento</h3>
+      <p style="margin:0; font-size:.92rem;">Um fotodiodo sensível à faixa infravermelha (760–1100 nm, espectro emitido pelo fogo) capta a radiação da chama; o circuito compara a intensidade captada com um limiar para indicar presença de fogo.</p>
+    </div>
+    <div class="spec-block">
+      <h3><span class="n">02</span> Especificações técnicas</h3>
+      <ul>
+          <li>Tensão: 3,3 a 5 V</li>
+          <li>Ângulo de detecção: ~60°</li>
+          <li>Alcance: cerca de 1 m (varia com o tamanho da chama)</li>
+          <li>Saída: analógica e digital</li>
+      </ul>
+      <p style="margin:12px 0 0; font-size:.85rem;"><strong>Tipo de sinal:</strong> Analógico (A0) e Digital (D0, via potenciômetro comparador)</p>
+    </div>
+  </div>
+
+  <div class="iot-callout">
+    <h3>Aplicações e exemplo de uso</h3>
+    <ul style="margin:0 0 10px; padding-left:18px;">
+          <li>Sistemas de detecção precoce de incêndio</li>
+          <li>Robótica de combate a incêndio (robôs apaga-vela)</li>
+          <li>Monitoramento de fornos e caldeiras</li>
+    </ul>
+    <p style="margin:0;"><strong>Exemplo de projeto:</strong> Disparo de um alarme sonoro e de uma notificação IoT assim que o sensor detecta a presença de chama.</p>
+  </div>
+
+  <div class="table-scroll">
+    <table class="models-table">
+      <caption>Fabricantes / modelos comerciais</caption>
+      <thead><tr><th>Fabricante ou modelo</th></tr></thead>
+      <tbody>
+            <tr><td class="brand">Diversos fabricantes genéricos de módulo (amplamente disponível)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</article>
+</div>
+</div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>Projeto acadêmico — Curso Técnico em Desenvolvimento de Sistemas · Unidade Curricular: Internet das Coisas · SENAI Santa Catarina.</div>
+    <div class="foot-mono">SENSORES-IoT // BUILD ESTÁTICO</div>
+    <div>By Luiza Michielin Reinhardt &copy; &trade;</div>
+  </div>
+</footer>
+
+<button class="back-top" id="backTop" aria-label="Voltar ao topo">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<script src="js/main.js"></script>
+<script src="js/catalog.js"></script>
+</body>
+</html>

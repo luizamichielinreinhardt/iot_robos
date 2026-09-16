@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Robôs Industriais — Catálogo Técnico | IoT &amp; Automação 4.0</title>
+<meta name="description" content="Catálogo técnico de robôs industriais (Cartesiano, SCARA, Articulado, Cilíndrico, Delta, Polar, Cobot) e sua relação com a Internet das Coisas.">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="statusbar">
+  <div class="container">
+    <span><span class="status-dot"></span>CATÁLOGO TÉCNICO ONLINE</span>
+    <span class="status-right">
+      <span class="mono" id="clock">00:00:00</span>
+      <span>07 ROBÔS CADASTRADOS</span>
+    </span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <svg class="brand-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="16" cy="16" r="14.5" stroke="#7c3aed" stroke-width="1.4"/>
+        <circle cx="16" cy="16" r="4.2" fill="none" stroke="#c026d3" stroke-width="1.4"/>
+        <circle cx="16" cy="16" r="1.6" fill="#5b21b6"/>
+        <path d="M16 6v3.4M16 22.6V26M6 16h3.4M22.6 16H26" stroke="#7c3aed" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      <span>IoT<br><small>&amp; Automação 4.0</small></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/></svg>
+    </button>
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sensores.html">Sensores IoT</a></li>
+        <li><a href="robos.html" class="active">Robôs Industriais</a></li>
+        <li><a href="videos.html">Vídeos</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div>
+      <span class="eyebrow">Indústria 4.0 · Internet das Coisas</span>
+      <h1>Robôs industriais e sua integração com a <em>Internet das Coisas</em></h1>
+      <p class="lead">Um catálogo técnico e educativo sobre os principais modelos de robôs utilizados em processos produtivos automatizados — conceitos, funcionamento, aplicações e a relação de cada um com os paradigmas da IoT.</p>
+      <div class="hero-actions">
+        <a href="#catalogo" class="btn btn-primary">Explorar catálogo de robôs</a>
+        <a href="#conceitos" class="btn btn-ghost">Ver conceitos fundamentais</a>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <div class="panel-label"><span>CÉLULA DE MANUFATURA CONECTADA</span><span>FIG. 00</span></div>
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/FANUC%20Robot%20Assembly%20Demo.jpg" alt="Braço robótico industrial em linha de montagem" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section id="conceitos">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-index">01 — 04 · Fundamentos</span>
+      <h2>Conceitos que sustentam a fábrica conectada</h2>
+      <p>Antes de conhecer os modelos de robôs do catálogo, é importante entender os quatro pilares conceituais que conectam automação física e infraestrutura digital.</p>
+    </div>
+
+    <div class="concept-grid">
+      <div class="concept-card">
+        <span class="idx">01</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="2"/><circle cx="12" cy="12" r="6" opacity=".5"/><circle cx="12" cy="12" r="10" opacity=".25"/></svg>
+        <h3>Internet das Coisas (IoT)</h3>
+        <p>Rede de objetos físicos — sensores, atuadores, máquinas e robôs — equipados com eletrônica embarcada, software e conectividade, capazes de coletar e trocar dados entre si e com sistemas de nuvem, sem depender de intervenção humana constante.</p>
+      </div>
+      <div class="concept-card">
+        <span class="idx">02</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 4v3M12 4a2 2 0 100-4 2 2 0 000 4z"/><path d="M8 20h8M8 20l1-6h6l1 6"/><path d="M9 14V9a3 3 0 016 0v5"/></svg>
+        <h3>Robótica Industrial</h3>
+        <p>Ramo da automação dedicado a manipuladores programáveis, multifuncionais, capazes de mover materiais, peças e ferramentas por meio de movimentos variáveis programados, executando tarefas repetitivas com precisão e velocidade superiores às humanas.</p>
+      </div>
+      <div class="concept-card">
+        <span class="idx">03</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="7" width="18" height="12" rx="1.5"/><path d="M7 7V5a2 2 0 012-2h6a2 2 0 012 2v2"/><path d="M8 12h3M8 15h5"/></svg>
+        <h3>Importância da Automação</h3>
+        <p>A automação reduz custos operacionais, aumenta a repetibilidade e a qualidade, elimina exposição humana a tarefas perigosas e permite produção contínua (24/7), sendo um diferencial competitivo central na chamada Indústria 4.0.</p>
+      </div>
+      <div class="concept-card">
+        <span class="idx">04</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="8.5" y="14" width="7" height="7" rx="1"/><path d="M6.5 10v4M17.5 10v4M6.5 14h5.5M17.5 14h-5.5"/></svg>
+        <h3>Robótica + IoT</h3>
+        <p>Quando um robô industrial ganha sensores e conectividade, ele deixa de ser uma máquina isolada e passa a ser um nó de dados: relata seu estado, recebe comandos remotos e participa de decisões coordenadas com o restante da planta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+<section id="relacao">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-index">Arquitetura</span>
+      <h2>Como um robô industrial se conecta à IoT</h2>
+      <p>Um robô conectado percorre quatro camadas funcionais entre o mundo físico e a tomada de decisão. Essa é a mesma lógica aplicada a todos os sete tipos de robô apresentados no catálogo.</p>
+    </div>
+
+    <div class="layer-list">
+      <div class="layer-item">
+        <span class="tag">CAMADA 01</span>
+        <div>
+          <h4>Percepção &amp; sensoriamento</h4>
+          <p>Encoders de posição, sensores de força/torque, câmeras de visão computacional e sensores de proximidade capturam o estado físico do robô e do processo em tempo real.</p>
+        </div>
+      </div>
+      <div class="layer-item">
+        <span class="tag">CAMADA 02</span>
+        <div>
+          <h4>Conectividade &amp; comunicação</h4>
+          <p>Protocolos industriais como <strong>OPC UA</strong>, <strong>MQTT</strong>, <strong>Profinet</strong> e <strong>Ethernet/IP</strong> transportam os dados do controlador do robô até redes locais e sistemas supervisórios.</p>
+        </div>
+      </div>
+      <div class="layer-item">
+        <span class="tag">CAMADA 03</span>
+        <div>
+          <h4>Processamento &amp; nuvem</h4>
+          <p>Plataformas de IoT industrial (IIoT) agregam dados de múltiplos robôs e sensores, aplicando análise, manutenção preditiva e painéis de monitoramento remoto.</p>
+        </div>
+      </div>
+      <div class="layer-item">
+        <span class="tag">CAMADA 04</span>
+        <div>
+          <h4>Atuação &amp; controle</h4>
+          <p>Com base nos dados processados, comandos retornam ao controlador do robô, ajustando trajetória, velocidade ou parada de segurança — fechando o ciclo de automação inteligente.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+<section id="catalogo" style="padding-top:76px;">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-index">05 · Catálogo</span>
+      <h2>Sete modelos de robôs da Indústria 4.0</h2>
+      <p>Selecione um tipo de robô no painel de navegação para ver conceito, princípio de funcionamento, características técnicas, aplicações, integração com IoT e três modelos comerciais de fabricantes distintos.</p>
+    </div>
+
+    <div class="catalog-shell">
+      <nav class="catalog-nav" aria-label="Seleção de tipo de robô">
+        <button data-target="cartesiano" class="active"><span class="n">01</span> Cartesiano</button>
+        <button data-target="scara"><span class="n">02</span> SCARA</button>
+        <button data-target="articulado"><span class="n">03</span> Articulado</button>
+        <button data-target="cilindrico"><span class="n">04</span> Cilíndrico</button>
+        <button data-target="delta"><span class="n">05</span> Delta</button>
+        <button data-target="polar"><span class="n">06</span> Polar</button>
+        <button data-target="colaborativo"><span class="n">07</span> Colaborativo</button>
+      </nav>
+
+
+      <div class="catalog-content">
+
+        <article class="robot-panel active" id="cartesiano">
+          <div class="robot-head">
+            <div>
+              <span class="kicker">Modelo 01 · Configuração PPP (linear-linear-linear)</span>
+              <h2>Robô Cartesiano</h2>
+              <p>Também chamado de robô de pórtico (<em>gantry</em>) ou linear, move-se em linhas retas ao longo de três eixos ortogonais — X, Y e Z — cada um controlado por uma junta prismática independente.</p>
+            </div>
+            <figure class="robot-diagram">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/TBG-25%20ISO%20Cartesian%20Gantry%20Robot.jpg" alt="Robô cartesiano de pórtico industrial" loading="lazy">
+              <figcaption>FIG. 01 — 3 juntas prismáticas ortogonais</figcaption>
+            </figure>
+          </div>
+
+          <div class="spec-grid">
+            <div class="spec-block">
+              <h3><span class="n">/01</span> Princípio de funcionamento</h3>
+              <ul>
+                <li>Cada eixo (X, Y, Z) desliza de forma independente sobre trilhos ou fusos.</li>
+                <li>A posição final é a soma vetorial simples dos três deslocamentos lineares.</li>
+                <li>Não exige cálculo de cinemática inversa complexa, pois os eixos são ortogonais entre si.</li>
+                <li>Movimento gerado por motores elétricos acoplados a fusos de esferas, correias dentadas ou atuadores lineares.</li>
+              </ul>
+            </div>
+            <div class="spec-block">
+              <h3><span class="n">/02</span> Características técnicas</h3>
+              <ul>
+                <li>Estrutura em pórtico, torre ou braço móvel, com 2 a 6 eixos.</li>
+                <li>Alta rigidez estrutural e repetibilidade fina (frequentemente sub-milimétrica).</li>
+                <li>Volume de trabalho em formato de paralelepípedo (retangular).</li>
+                <li>Programação simples baseada diretamente em coordenadas X, Y, Z.</li>
+                <li>Controle por CNC ou CLP dedicado, com fácil escalabilidade de curso.</li>
+              </ul>
+            </div>
+            <div class="spec-block">
+              <h3><span class="n">/03</span> Aplicações industriais</h3>
+              <ul>
+                <li>Montagem e inserção de componentes eletrônicos (linhas SMT).</li>
+                <li>Pick-and-place e movimentação de materiais.</li>
+                <li>Dispensação de adesivos, selantes e fluidos.</li>
+                <li>Usinagem leve, inspeção dimensional e paletização.</li>
+              </ul>
+            </div>
+            <div class="spec-block">
+              <h3><span class="n">/04</span> Integração com automação e IoT</h3>
+              <ul>
+                <li>Controladores compatíveis com redes industriais (EtherCAT, Ethernet/IP) expõem posição e carga de cada eixo em tempo real.</li>
+                <li>Sensores de vibração nos fusos alimentam algoritmos de manutenção preditiva.</li>
+                <li>Múltiplos robôs cartesianos podem ser sincronizados por um único controlador conectado à rede da planta.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="table-scroll">
+            <table class="models-table">
+              <caption>Modelos comerciais de fabricantes distintos</caption>
+              <thead>
+                <tr><th>Modelo</th><th>Fabricante</th><th>Destaques técnicos</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>XY-X Series</td><td class="brand">Yamaha Motor Co.</td><td>Robôs cartesianos modulares de 2 a 6 eixos; controlador multieixo RCX340; ampla variação de cursos e cargas.</td></tr>
+                <tr><td>Cartesian Robot Systems</td><td class="brand">IAI Corporation</td><td>Atuadores elétricos cartesianos configuráveis, usados em montagem de precisão e handling.</td></tr>
+                <tr><td>Cartesian eLINE / CKK-MKK</td><td class="brand">Bosch Rexroth</td><td>Módulos lineares de pórtico para automação modular e integração com CLPs industriais.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="margin-top:32px;">
+            <h3 style="font-size:1rem; margin-bottom:14px;">Imagens ilustrativas</h3>
+            <div class="gallery-strip">
+              <div class="frame">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/TBG-25%20ISO%20Cartesian%20Gantry%20Robot.jpg" alt="Estrutura em pórtico (gantry)" loading="lazy">
+                <span>Estrutura em pórtico (gantry)</span>
+              </div>
+              <div class="frame">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/FANUC%20Robot%20Assembly%20Demo.jpg" alt="Robô de torre XYZ" loading="lazy">
+                <span>Robô de torre XYZ</span>
+              </div>
+              <div class="frame">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Leichtbauroboter%20-%20Lightweight%20robots%20(14235555984).jpg" alt="Célula SMT com eixo cartesiano" loading="lazy">
+                <span>Célula SMT com eixo cartesiano</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+
+        <article class="robot-panel" id="scara">
+          <div class="robot-head">
+            <div>
+              <span class="kicker">Modelo 02 · Selective Compliance Assembly Robot Arm</span>
+              <h2>Robô SCARA</h2>
+              <p>Braço horizontal com dois elos rotativos paralelos, complementados por um eixo vertical de curso e um eixo de rotação da ferramenta — rígido no eixo Z, complacente no plano XY.</p>
+            </div>
+            <figure class="robot-diagram">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/KUKA%20Industrial%20Robot%20KR10%20SCARA.jpg" alt="Robô SCARA industrial" loading="lazy">
+              <figcaption>FIG. 02 — 2 juntas rotativas + curso Z + rotação θ</figcaption>
+            </figure>
+          </div>
+
+          <div class="spec-grid">
+            <div class="spec-block">
+              <h3><span class="n">/01</span> Princípio de funcionamento</h3>
+              <ul>
+                <li>Dois elos giram em torno de eixos verticais paralelos (J1 e J2), posicionando o pulso no plano XY.</li>
+                <li>Um terceiro eixo linear (Z) desce/sobe para aproximar a ferramenta da peça.</li>
+                <li>Um quarto eixo (θ) gira a ferramenta em torno do próprio eixo vertical.</li>
+                <li>A geometria paralela simplifica a cinemática e favorece alta velocidade.</li>
+              </ul>
+            </div>
+            <div class="spec-block">
+              <h3><span class="n">/02</span> Características técnicas</h3>
+              <ul>
+                <li>4 graus de liberdade (X, Y, Z e rotação da ferramenta).</li>
+                <li>Payload típico entre 1 kg e 20 kg conforme o modelo.</li>
+                <li>Alta repetibilidade e velocidade de ciclo, ideal para tarefas repetitivas rápidas.</li>
+                <li>Montagem em pedestal fixo, com envelope de trabalho em formato de leque de 360°.</li>
+              </ul>
+            </div>
+            <div class="spec-block">
+              <h3><span class="n">/03</span> Aplicações industriais</h3>
+              <ul>
+                <li>Montagem eletrônica e inserção de componentes de precisão.</li>
+                <li>Pick-and-place de alta velocidade e paletização leve.</li>
+                <li>Dispensação de adesivos e parafusamento automatizado.</li>
+                <li>Inspeção e testes funcionais em linha.</li>
+              </ul>
+            </div>
+            <div class="spec-block">
+              <h3><span class="n">/04</span> Integração com automação e IoT</h3>
+              <ul>
+                <li>Controladores modernos suportam visão computacional integrada para localizar peças e ajustar a trajetória em tempo real.</li>
+                <li>Conectividade Ethernet/IP e OPC UA permite rastreamento de esteira e sincronização com sistemas MES.</li>
+                <li>Dados de tempo de ciclo alimentam painéis de eficiência (OEE) da linha de produção.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="table-scroll">
+            <table class="models-table">
+              <caption>Modelos comerciais de fabricantes distintos</caption>
+              <thead><tr><th>Modelo</th><th>Fabricante</th><th>Destaques técnicos</th></tr></thead>
+              <tbody>
+                <tr><td>SR-6iA</td><td class="brand">FANUC Corporation</td><td>Payload de 6 kg, alcance de 650 mm, controlador R-30iB Compact Plus com visão iRVision integrada.</td></tr>
+                <tr><td>Série G / T</td><td class="brand">Epson (Seiko Epson)</td><td>Mais de 300 modelos disponíveis, alcance de 175 mm a 1000 mm, líder mundial em unidades SCARA instaladas.</td></tr>
+                <tr><td>SG650</td><td class="brand">Yaskawa Electric</td><td>Payload de 6 kg, alcance de 650 mm, programável via padrões IEC 61131-3 / PLCopen.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="margin-top:32px;">
+            <h3 style="font-size:1rem; margin-bottom:14px;">Imagens ilustrativas</h3>
+            <div class="gallery-strip">
+              <div class="frame"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/KUKA%20Industrial%20Robot%20KR10%20SCARA.jpg" alt="Braço SCARA de 2 elos" loading="lazy"><span>Braço SCARA de 2 elos</span></div>
+              <div class="frame"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Leichtbauroboter%20-%20Lightweight%20robots%20(14235555984).jpg" alt="Célula de montagem eletrônica" loading="lazy"><span>Célula de montagem eletrônica</span></div>
+              <div class="frame"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Innorobo%202015%20-%20Kuka%20Robotics.JPG" alt="Envelope de trabalho circular" loading="lazy"><span>Envelope de trabalho circular</span></div>
+            </div>
+          </div>
+        </article>
+
+
+        <article class="robot-panel" id="articulado">
+          <div class="robot-head">
+            <div>
+              <span class="kicker">Modelo 03 · Braço antropomórfico multieixo</span>
+              <h2>Robô Articulado</h2>
+              <p>Conjunto de juntas rotativas em série — tipicamente 6 — que reproduz a mobilidade de um braço humano, sendo a configuração mais versátil e mais utilizada na indústria atual.</p>
+            </div>
+            <figure class="robot-diagram">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/KUKA%20Robotoer%20P4400657-HDR.jpg" alt="Robô articulado de braço antropomórfico" loading="lazy">
+              <figcaption>FIG. 03 — cadeia serial de juntas rotativas (6 GDL)</figcaption>
+            </figure>
+          </div>
+
+          <div class="spec-grid">
+            <div class="spec-block">
+              <h3><span class="n">/01</span> Princípio de funcionamento</h3>
+              <ul>
+                <li>Cada junta rotativa (revoluta) contribui com um grau de liberdade da cadeia serial.</li>
+                <li>Seis eixos permitem posicionar e orientar o efetuador em qualquer ponto e ângulo do envelope de trabalho.</li>
+                <li>Exige cinemática inversa mais complexa, resolvida pelo controlador em tempo real.</li>
+                <li>Acionamento por servomotores e redutores harmônicos ou cicloidais em cada junta.</li>
+              </ul>
+            </div>
+            <div class="spec-block">
+              <h3><span class="n">/02</span> Características técnicas</h3>
+              <ul>
+                <li>Tipicamente 6 graus de liberdade (alguns modelos com 7 eixos redundantes).</li>
+                <li>Payload de poucos quilos a mais de 1000 kg, conforme a classe do robô.</li>
+                <li>Grande envelope de trabalho e alta flexibilidade angular.</li>
+                <li>Repetibilidade entre ±0,02 mm (pequeno porte) e ±0,5 mm (grande porte).</li>
+              </ul>
+            </div>
+            <div class="spec-block">
+              <h3><span class="n">/03</span> Aplicações industriais</h3>
+              <ul>
+                <li>Solda a ponto e solda a arco na indústria automotiva.</li>
+                <li>Pintura industrial e aplicação de revestimentos.</li>
+                <li>Paletização e manuseio de cargas pesadas.</li>
+                <li>Montagem complexa e usinagem robotizada.</li>
+              </ul>
+            </div>
+            <div class="spec-block">
+              <h3><span class="n">/04</span> Integração com automação e IoT</h3>
+              <ul>
+                <li>Controladores como o KUKA KR C5 ou o FANUC R-30iB oferecem comunicação OPC UA nativa para integração direta com plataformas de manufatura em nuvem.</li>
+                <li>Sensores de torque nas juntas possibilitam detecção de colisão e parada segura.</li>
+                <li>Telemetria contínua (temperatura, vibração, ciclos) viabiliza manutenção preditiva remota.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="table-scroll">
+            <table class="models-table">
+              <caption>Modelos comerciais de fabricantes distintos</caption>
+              <thead><tr><th>Modelo</th><th>Fabricante</th><th>Destaques técnicos</th></tr></thead>
+              <tbody>
+                <tr><td>KR 6 R900</td><td class="brand">KUKA AG</td><td>Payload de 6 kg, alcance de 900 mm, controlador KR C4/C5, uso em montagem e handling leve.</td></tr>
+                <tr><td>IRB 6700</td><td class="brand">ABB Ltd.</td><td>Payload de até 300 kg, alcance de até 3200 mm, amplamente usado em soldagem e manuseio pesado.</td></tr>
+                <tr><td>R-2000iC</td><td class="brand">FANUC Corporation</td><td>Payload de 125 a 270 kg, robô de referência em linhas automotivas de solda e handling.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="margin-top:32px;">
+            <h3 style="font-size:1rem; margin-bottom:14px;">Imagens ilustrativas</h3>
+            <div class="gallery-strip">
+              <div class="frame"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/KUKA%20Robotoer%20P4400657-HDR.jpg" alt="Braço de 6 eixos" loading="lazy"><span>Braço de 6 eixos</span></div>
+              <div class="frame"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Innorobo%202015%20-%20Kuka%20Robotics.JPG" alt="Célula de soldagem robotizada" loading="lazy"><span>Célula de soldagem robotizada</span></div>
+              <div class="frame"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kuka%20ipari%20robot%2C%20Automotive%202017%20Hungexpo.jpg" alt="Manuseio de carga em paletização" loading="lazy"><span>Manuseio de carga em paletização</span></div>
+            </div>
+          </div>
+        </article>
+
+
+        <article class="robot-panel" id="cilindrico">
+          <div class="robot-head">
+            <div>
+              <span class="kicker">Modelo 04 · Configuração RPP (rotativa-linear-linear)</span>
+              <h2>Robô Cilíndrico</h2>
+              <p>Combina uma junta rotativa na base com duas juntas prismáticas — uma vertical e outra radial — formando um envelope de trabalho em forma de cilindro.</p>
+            </div>
+            <figure class="robot-diagram">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Industriemuseum%20Chemnitz%20-%20moderne%20Karosserieschwei%C3%9Fanlage%20mit%20Industrierobotern.jpg" alt="Célula robotizada de solda automotiva" loading="lazy">
+              <figcaption>FIG. 04 — base rotativa + curso vertical + curso radial</figcaption>
+            </figure>
+          </div>
+
+          <div class="spec-grid">
+            <div class="spec-block">
+              <h3><span class="n">/01</span> Princípio de funcionamento</h3>
+              <ul>
+                <li>Uma junta rotativa na base (θ) gira o conjunto do braço em torno de um eixo vertical.</li>
+                <li>Uma junta prismática vertical (Z) eleva ou abaixa o braço.</li>
+                <li>Uma junta prismática radial (r) estende ou recolhe o braço horizontalmente.</li>
+                <li>A combinação posiciona o efetuador dentro de um volume cilíndrico.</li>
+              </ul>
+            </div>
+            <div class="spec-block">
+              <h3><span class="n">/02</span> Características técnicas</h3>
+              <ul>
+                <li>3 graus de liberdade básicos (1 rotativo + 2 lineares), podendo receber eixos extras de pulso.</li>
+                <li>Estrutura mecânica simples e robusta, de fácil manutenção.</li>
+                <li>Bom equilíbrio entre alcance vertical e radial.</li>
+                <li>Configuração considerada intermediária entre a cartesiana e a polar.</li>
+              </ul>
+            </div>
+            <div class="spec-block">
+              <h3><span class="n">/03</span> Aplicações industriais</h3>
+              <ul>
+                <li>Transferência de peças entre máquinas e carga/descarga de máquinas-ferramenta.</li>
+                <li>Soldagem por pontos e paletização.</li>
+                <li>Manuseio de peças em espaços confinados.</li>
+                <li>Manipulação de wafers em equipamentos de semicondutores (nichos atuais).</li>
+              </ul>
+            </div>
+            <div class="spec-block">
+              <h3><span class="n">/04</span> Integração com automação e IoT</h3>
+              <ul>
+                <li>Encoders angulares e lineares equipam controladores modernos para rastreabilidade do ciclo de trabalho.</li>
+                <li>Em instalações legadas, gateways IoT podem digitalizar sinais analógicos do controlador original para telemetria básica.</li>
+                <li>É hoje uma configuração menos comum em catálogos atuais, amplamente substituída por robôs SCARA e articulados em novas instalações — permanecendo relevante sobretudo em nichos como manuseio de semicondutores.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="table-scroll">
+            <table class="models-table">
+              <caption>Modelos comerciais de fabricantes distintos</caption>
+              <thead><tr><th>Modelo</th><th>Fabricante</th><th>Destaques técnicos</th></tr></thead>
+              <tbody>
+                <tr><td>Versatran</td><td class="brand">AMF Corporation</td><td>Primeiro robô cilíndrico comercial (1962); marco histórico da robótica industrial, adotado pela Ford.</td></tr>
+                <tr><td>Model FA</td><td class="brand">Prab, Inc.</td><td>Robô cilíndrico usado em transferência de material sob controle programável, sucessor da linha Versatran.</td></tr>
+                <tr><td>Robôs de handling de wafers</td><td class="brand">JEL Corporation</td><td>Robôs de coordenadas cilíndricas de 3 eixos aplicados a manuseio de wafers em equipamentos de semicondutores.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="margin-top:32px;">
+            <h3 style="font-size:1rem; margin-bottom:14px;">Imagens ilustrativas</h3>
+            <div class="gallery-strip">
+              <div class="frame"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Industriemuseum%20Chemnitz%20-%20moderne%20Karosserieschwei%C3%9Fanlage%20mit%20Industrierobotern.jpg" alt="Coluna com braço radial" loading="lazy"><span>Coluna com braço radial</span></div>
+              <div class="frame"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kuka%20ipari%20robot%2C%20Automotive%202017%20Hungexpo.jpg" alt="Envelope de trabalho cilíndrico" loading="lazy"><span>Envelope de trabalho cilíndrico</span></div>
+              <div class="frame"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/UNIMATE%20PUMA%20200%20Robot%20Arm%20(6202074072).jpg" alt="Manuseio de wafer em cleanroom" loading="lazy"><span>Manuseio de wafer em cleanroom</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="robot-panel" id="delta">
+          <div class="robot-head">
+            <div>
+              <span class="kicker">Modelo 05 · Manipulador paralelo suspenso</span>
+              <h2>Robô Delta</h2>
+              <p>Estrutura paralela (não serial) com três braços conectando uma base fixa superior a uma plataforma móvel, mantendo a orientação da ferramenta e permitindo altíssima velocidade.</p>
+            </div>
+            <figure class="robot-diagram">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/TOSY%20Parallel%20Robot.JPG" alt="Robô delta de braços paralelos" loading="lazy">
+              <figcaption>FIG. 05 — 3 braços paralelos + plataforma móvel</figcaption>
+            </figure>
+          </div>
+
+          <div class="spec-grid">
+            <div class="spec-block">
+              <h3><span class="n">/01</span> Princípio de funcionamento</h3>
+              <ul>
+                <li>Três motores fixos na base superior acionam braços articulados em paralelogramo.</li>
+                <li>Os paralelogramos restringem a plataforma móvel a movimentos puramente de translação (X, Y, Z).</li>
+                <li>Como os motores permanecem fixos, a massa em movimento é mínima, permitindo acelerações elevadas.</li>
+                <li>Um eixo central adicional pode girar a ferramenta (4º grau de liberdade).</li>
+              </ul>
+            </div>
+            <div class="spec-block">
+              <h3><span class="n">/02</span> Características técnicas</h3>
+              <ul>
+                <li>Estrutura suspensa, braços leves (frequentemente em fibra de carbono).</li>
+                <li>Altíssima velocidade e aceleração — dezenas de ciclos por minuto.</li>
+                <li>Payload tipicamente baixo, entre 0,5 kg e 12 kg.</li>
+                <li>Envelope de trabalho em formato de domo, relativamente compacto.</li>
+              </ul>
+            </div>
+            <div class="spec-block">
+              <h3><span class="n">/03</span> Aplicações industriais</h3>
+              <ul>
+                <li>Pick-and-place de altíssima velocidade em linhas de embalagem.</li>
+                <li>Triagem e embalagem de alimentos e produtos farmacêuticos.</li>
+                <li>Montagem eletrônica leve.</li>
+                <li>Inspeção rápida assistida por visão computacional.</li>
+              </ul>
+            </div>
+            <div class="spec-block">
+              <h3><span class="n">/04</span> Integração com automação e IoT</h3>
+              <ul>
+                <li>Sistemas de visão computacional (ex.: iRVision) sincronizam-se ao robô via redes de alta velocidade para rastreamento em esteira.</li>
+                <li>Dados de ciclo alimentam sistemas MES para cálculo de OEE em linhas de embalagem.</li>
+                <li>Sensores de força na plataforma móvel permitem detecção de falhas de captura de peças.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="table-scroll">
+            <table class="models-table">
+              <caption>Modelos comerciais de fabricantes distintos</caption>
+              <thead><tr><th>Modelo</th><th>Fabricante</th><th>Destaques técnicos</th></tr></thead>
+              <tbody>
+                <tr><td>IRB 360 FlexPicker</td><td class="brand">ABB Ltd.</td><td>Payload de até 8 kg, referência em pick-and-place de alta velocidade na indústria alimentícia.</td></tr>
+                <tr><td>M-1iA</td><td class="brand">FANUC Corporation</td><td>Robô delta ultracompacto de 3, 4 ou 6 eixos, payload de até 1 kg, ideal para peças pequenas.</td></tr>
+                <tr><td>Quattro</td><td class="brand">Omron Corporation (Adept)</td><td>Variante de 4 braços paralelos, maior rigidez e velocidade para cargas médias.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="margin-top:32px;">
+            <h3 style="font-size:1rem; margin-bottom:14px;">Imagens ilustrativas</h3>
+            <div class="gallery-strip">
+              <div class="frame"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/TOSY%20Parallel%20Robot.JPG" alt="Estrutura de braços paralelos" loading="lazy"><span>Estrutura de braços paralelos</span></div>
+              <div class="frame"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/UNIMATE%20PUMA%20200%20Robot%20Arm%20(6202074072).jpg" alt="Linha de embalagem com esteira" loading="lazy"><span>Linha de embalagem com esteira</span></div>
+              <div class="frame"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Robot%20delta%20FlexPicker%20d%27ABB.png" alt="Envelope de trabalho em domo" loading="lazy"><span>Envelope de trabalho em domo</span></div>
+            </div>
+          </div>
+        </article>
+
+
+        <article class="robot-panel" id="polar">
+          <div class="robot-head">
+            <div>
+              <span class="kicker">Modelo 06 · Configuração RRL (coordenadas esféricas)</span>
+              <h2>Robô Polar</h2>
+              <p>Também chamado de robô esférico: o braço se conecta à base por uma junta de giro, combinada a uma junta de elevação e uma junta linear de extensão radial, formando um envelope esférico.</p>
+            </div>
+            <figure class="robot-diagram">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Unimate%20pouring%20coffee%20for%20a%20woman%20at%20Biltmore%20Hotel%2C%201967.jpg" alt="Unimate, robô polar pioneiro da indústria" loading="lazy">
+              <figcaption>FIG. 06 — giro de base + elevação + extensão radial</figcaption>
+            </figure>
+          </div>
+
+          <div class="spec-grid">
+            <div class="spec-block">
+              <h3><span class="n">/01</span> Princípio de funcionamento</h3>
+              <ul>
+                <li>A base gira em torno de um eixo vertical (θ), orientando todo o braço.</li>
+                <li>Uma junta de elevação (β) inclina o braço para cima ou para baixo.</li>
+                <li>Uma junta linear (r) estende ou recolhe o braço radialmente.</li>
+                <li>A combinação posiciona o efetuador dentro de um volume esférico.</li>
+              </ul>
+            </div>
+            <div class="spec-block">
+              <h3><span class="n">/02</span> Características técnicas</h3>
+              <ul>
+                <li>Configuração 2 juntas rotativas + 1 junta linear (a mais antiga da robótica industrial).</li>
+                <li>Envelope de trabalho esférico, com bom alcance para poucos eixos.</li>
+                <li>Programação exige transformação de coordenadas esféricas.</li>
+                <li>Precisão reduzida próximo ao eixo de rotação da base.</li>
+              </ul>
+            </div>
+            <div class="spec-block">
+              <h3><span class="n">/03</span> Aplicações industriais</h3>
+              <ul>
+                <li>Soldagem a ponto em linhas automotivas (aplicação histórica pioneira).</li>
+                <li>Pintura industrial por pulverização.</li>
+                <li>Transferência de peças em processos de fundição e moldagem por injeção.</li>
+              </ul>
+            </div>
+            <div class="spec-block">
+              <h3><span class="n">/04</span> Integração com automação e IoT</h3>
+              <ul>
+                <li>Configuração hoje considerada historicamente fundadora, amplamente substituída por robôs articulados e SCARA em novas instalações.</li>
+                <li>Instalações legadas podem ser modernizadas com gateways IoT que digitalizam sinais analógicos do controlador original, permitindo telemetria básica de ciclo e alarmes.</li>
+                <li>Retrofit com sensores de posição possibilita rastreabilidade mínima sem substituir o robô original.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="table-scroll">
+            <table class="models-table">
+              <caption>Modelos comerciais de fabricantes distintos</caption>
+              <thead><tr><th>Modelo</th><th>Fabricante</th><th>Destaques técnicos</th></tr></thead>
+              <tbody>
+                <tr><td>Unimate 2000 Series</td><td class="brand">Unimation, Inc.</td><td>Primeiro robô industrial comercial (1961), instalado na General Motors; configuração polar pioneira.</td></tr>
+                <tr><td>Kawasaki-Unimate 2000</td><td class="brand">Kawasaki Heavy Industries</td><td>Versão licenciada da Unimation; primeiro robô industrial fabricado no Japão (1969).</td></tr>
+                <tr><td>Robô de pintura eletro-hidráulico</td><td class="brand">Trallfa (Noruega)</td><td>Um dos primeiros robôs de pintura industrial da Europa (1967), de configuração polar.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="margin-top:32px;">
+            <h3 style="font-size:1rem; margin-bottom:14px;">Imagens ilustrativas</h3>
+            <div class="gallery-strip">
+              <div class="frame"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Unimate%20pouring%20coffee%20for%20a%20woman%20at%20Biltmore%20Hotel%2C%201967.jpg" alt="Braço pivotante de configuração esférica" loading="lazy"><span>Braço pivotante de configuração esférica</span></div>
+              <div class="frame"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Robot%20delta%20FlexPicker%20d%27ABB.png" alt="Envelope de trabalho esférico" loading="lazy"><span>Envelope de trabalho esférico</span></div>
+              <div class="frame"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/FANUC%20Robot%20Assembly%20Demo.jpg" alt="Aplicação histórica: solda a ponto" loading="lazy"><span>Aplicação histórica: solda a ponto</span></div>
+            </div>
+          </div>
+        </article>
+
+
+        <article class="robot-panel" id="colaborativo">
+          <div class="robot-head">
+            <div>
+              <span class="kicker">Modelo 07 · Cobot — Collaborative Robot</span>
+              <h2>Robô Colaborativo</h2>
+              <p>Projetado para operar lado a lado com pessoas, sem barreiras físicas de segurança, graças a sensores de força/torque, limitação de potência e software de monitoramento de zonas compartilhadas.</p>
+            </div>
+            <figure class="robot-diagram">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/KUKA%20LBR%20iiwa.jpg" alt="Robô colaborativo (cobot)" loading="lazy">
+              <figcaption>FIG. 07 — juntas com sensor de torque + zona colaborativa</figcaption>
+            </figure>
+          </div>
+
+          <div class="spec-grid">
+            <div class="spec-block">
+              <h3><span class="n">/01</span> Princípio de funcionamento</h3>
+              <ul>
+                <li>Sensores de torque em cada junta detectam contato inesperado e reduzem ou interrompem o movimento.</li>
+                <li>Softwares de segurança monitoram zonas de trabalho compartilhadas com humanos.</li>
+                <li>Podem ser programados por demonstração — o operador guia o braço manualmente para ensinar trajetórias.</li>
+                <li>Movimentos executados com potência e velocidade limitadas por norma de segurança.</li>
+              </ul>
+            </div>
+            <div class="spec-block">
+              <h3><span class="n">/02</span> Características técnicas</h3>
+              <ul>
+                <li>Conformidade com as normas ISO 10218-1/2 e ISO/TS 15066 (colaboração segura).</li>
+                <li>Payload típico entre 3 kg e 20 kg.</li>
+                <li>Superfícies arredondadas e baixo peso, minimizando pontos de esmagamento.</li>
+                <li>Interfaces de programação simplificadas, com telas touch-screen.</li>
+              </ul>
+            </div>
+            <div class="spec-block">
+              <h3><span class="n">/03</span> Aplicações industriais</h3>
+              <ul>
+                <li>Montagem colaborativa e apoio direto ao operador humano.</li>
+                <li>Inspeção de qualidade e testes funcionais.</li>
+                <li>Operação de máquinas (machine tending) e embalagem.</li>
+                <li>Aplicações em laboratórios e ambientes de baixo volume/alta mistura.</li>
+              </ul>
+            </div>
+            <div class="spec-block">
+              <h3><span class="n">/04</span> Integração com automação e IoT</h3>
+              <ul>
+                <li>Nativamente projetados com conectividade Ethernet/IP, PROFINET e MQTT, e APIs abertas.</li>
+                <li>Permitem monitoramento de produtividade em tempo real e reprogramação remota via nuvem.</li>
+                <li>São, entre os sete tipos apresentados, os mais alinhados aos paradigmas da Internet das Coisas industrial (IIoT), por já nascerem conectados.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="table-scroll">
+            <table class="models-table">
+              <caption>Modelos comerciais de fabricantes distintos</caption>
+              <thead><tr><th>Modelo</th><th>Fabricante</th><th>Destaques técnicos</th></tr></thead>
+              <tbody>
+                <tr><td>UR10e</td><td class="brand">Universal Robots A/S</td><td>Payload de 12,5 kg, alcance de 1300 mm; pioneiro e um dos nomes mais reconhecidos do mercado de cobots.</td></tr>
+                <tr><td>CRX-10iA</td><td class="brand">FANUC Corporation</td><td>Payload de 10 kg, design verde característico, programação simplificada por arraste direto.</td></tr>
+                <tr><td>LBR iiwa</td><td class="brand">KUKA AG</td><td>Payload de 7 a 14 kg, sensores de torque em todas as juntas, alta sensibilidade de força.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="margin-top:32px;">
+            <h3 style="font-size:1rem; margin-bottom:14px;">Imagens ilustrativas</h3>
+            <div class="gallery-strip">
+              <div class="frame"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/KUKA%20LBR%20iiwa.jpg" alt="Cobot em bancada colaborativa" loading="lazy"><span>Cobot em bancada colaborativa</span></div>
+              <div class="frame"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/FANUC%20Robot%20Assembly%20Demo.jpg" alt="Zona de colaboração monitorada" loading="lazy"><span>Zona de colaboração monitorada</span></div>
+              <div class="frame"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Leichtbauroboter%20-%20Lightweight%20robots%20(14235555984).jpg" alt="Cobot em base móvel (AMR)" loading="lazy"><span>Cobot em base móvel (AMR)</span></div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>Projeto acadêmico — Curso Técnico em Desenvolvimento de Sistemas · Unidade Curricular: Internet das Coisas · SENAI Santa Catarina.</div>
+    <div class="foot-mono">ROBÓTICA-4.0 // BUILD ESTÁTICO</div>
+    <div>By Luiza Michielin Reinhardt &copy; &trade;</div>
+  </div>
+</footer>
+
+<button class="back-top" id="backTop" aria-label="Voltar ao topo">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<script src="js/main.js"></script>
+<script src="js/catalog.js"></script>
+</body>
+</html>
